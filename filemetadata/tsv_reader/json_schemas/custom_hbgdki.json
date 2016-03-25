@@ -1,0 +1,266 @@
+{
+    "title": "custom_hbgdki", 
+    "type": "object", 
+    "properties": {
+        "hbgdkiStudyName": {
+            "propertyOrder": "0", 
+            "description": "Name of the study.", 
+            "title": "Name of Study", 
+            "display_format": null, 
+            "required": false, 
+            "type": "string"
+        }, 
+        "hbgdkiStudyRegistry": {
+            "description": "Which study registry was used?", 
+            "title": "Study Registry", 
+            "items": {
+                "type": "object", 
+                "properties": {
+                    "hbgdkiStudyRegistryType": {
+                        "enum": [
+                            "International Clinical Trials Registry Platform (ICTRP)", 
+                            "Australian New Zealand Clinical Trials Registry (ANZCTR)", 
+                            "Brazilian Clinical Trials Registry (ReBec)", 
+                            "Chinese Clinical Trial Registry (ChiCTR)", 
+                            "Clinical Research Information Service (CRiS), Republic of Korea", 
+                            "Clinical Trials Registry - India (CTRI)", 
+                            "Cuban Public Registry of Clinical Trials (RPCEC)", 
+                            "EU Clinical Trials Register (EU-CTR)", 
+                            "German Clinical Trials Register (DRKS)", 
+                            "Iranian Registry of Clinical Trials (IRCT)", 
+                            "ISRCTN", 
+                            "Japan Primary Registries Network (JPRN)", 
+                            "Pan African Clinical Trial Registry (PACTR)", 
+                            "Sri Lanka Clinical Trials Registry (SLCTR)", 
+                            "Thai Clinical Trials Registry (TCTR)", 
+                            "The Netherlands National Trial Register (NTR)", 
+                            "US Clinical Trials Registry (clinicaltrials.gov)"
+                        ], 
+                        "description": "Which study registry was used?", 
+                        "title": "ID Type", 
+                        "required": false, 
+                        "propertyOrder": "2", 
+                        "display_format": null, 
+                        "type": "string"
+                    }, 
+                    "hbgdkiStudyRegistryNumber": {
+                        "propertyOrder": "3", 
+                        "description": "ID number for the study per the registry.", 
+                        "title": "ID Number", 
+                        "display_format": null, 
+                        "required": false, 
+                        "type": "string"
+                    }
+                }, 
+                "title": "Study Registry"
+            }, 
+            "format": "table", 
+            "uniqueItems": true, 
+            "type": "array"
+        }, 
+        "hbgdkiStudyType": {
+            "enum": [
+                "Interventional", 
+                "Observational", 
+                "Case Control", 
+                "Meta-analysis", 
+                "Demographic & Health Survey", 
+                "Other Survey"
+            ], 
+            "description": "Type of study.", 
+            "title": "Type of study", 
+            "required": false, 
+            "propertyOrder": "4", 
+            "display_format": null, 
+            "type": "string"
+        }, 
+        "hbgdkiIntervention": {
+            "propertyOrder": "5", 
+            "description": "If an interventional study, describe the interventions.", 
+            "title": "Intervention", 
+            "display_format": null, 
+            "required": false, 
+            "type": "string"
+        }, 
+        "hbgdkiLowerLimitAge": {
+            "propertyOrder": "6", 
+            "description": "Lower limit of age at enrollment.", 
+            "title": "Lower limit of age at enrollment", 
+            "display_format": null, 
+            "required": false, 
+            "type": "integer"
+        }, 
+        "hbgdkiUnitsLowerLimitAge": {
+            "propertyOrder": "7", 
+            "description": "Units for lower age limit.", 
+            "title": "Units for lower age limit", 
+            "display_format": null, 
+            "required": false, 
+            "type": "string"
+        }, 
+        "hbgdkiUpperLimitAge": {
+            "propertyOrder": "8", 
+            "description": "Upper limit of age at enrollment.", 
+            "title": "Upper limit of age at enrollment", 
+            "display_format": null, 
+            "required": false, 
+            "type": "integer"
+        }, 
+        "hbgdkiUnitsUpperLimitAge": {
+            "propertyOrder": "9", 
+            "description": "Units for upper age limit.", 
+            "title": "Units for upper age limit", 
+            "display_format": null, 
+            "required": false, 
+            "type": "string"
+        }, 
+        "hbgdkiOther": {
+            "propertyOrder": "10", 
+            "description": "Other entry criteria.", 
+            "title": "Other entry criteria", 
+            "display_format": null, 
+            "required": false, 
+            "type": "string"
+        }, 
+        "hbgdkiBiosampleType": {
+            "propertyOrder": "11", 
+            "description": "Types of biosamples used (e.g., Blood, Stool,...).", 
+            "title": "Types of biosamples collected, if any", 
+            "display_format": null, 
+            "required": false, 
+            "type": "string"
+        }, 
+        "hbgdkiGestationalAge": {
+            "enum": [
+                "Yes", 
+                "No"
+            ], 
+            "description": "Gestational age", 
+            "title": "Gestational age", 
+            "required": false, 
+            "propertyOrder": "12", 
+            "display_format": null, 
+            "type": "string"
+        }, 
+        "hbgdkiAnthropometry": {
+            "enum": [
+                "Yes", 
+                "No"
+            ], 
+            "description": "Anthropometry", 
+            "title": "Anthropometry", 
+            "required": false, 
+            "propertyOrder": "13", 
+            "display_format": null, 
+            "type": "string"
+        }, 
+        "hbgdkiBirthWeight": {
+            "enum": [
+                "Yes", 
+                "No"
+            ], 
+            "description": "Birth weight", 
+            "title": "Birth weight", 
+            "required": false, 
+            "propertyOrder": "14", 
+            "display_format": null, 
+            "type": "string"
+        }, 
+        "hbgdkiNeurocognitiveDev": {
+            "enum": [
+                "Yes", 
+                "No"
+            ], 
+            "description": "Neurocognitive development", 
+            "title": "Neurocognitive development", 
+            "required": false, 
+            "propertyOrder": "15", 
+            "display_format": null, 
+            "type": "string"
+        }, 
+        "hbgdkiMaternalChar": {
+            "enum": [
+                "Yes", 
+                "No"
+            ], 
+            "description": "Dataset parameters can include: age, height, weight, obstetric history.", 
+            "title": "Maternal characteristics", 
+            "required": false, 
+            "propertyOrder": "16", 
+            "display_format": null, 
+            "type": "string"
+        }, 
+        "hbgdkiPregnancyBirth": {
+            "enum": [
+                "Yes", 
+                "No"
+            ], 
+            "description": "Dataset parameters can include: Morbidity, nutrition, ANC, delivery method and setting.", 
+            "title": "Pregnancy and birth", 
+            "required": false, 
+            "propertyOrder": "17", 
+            "display_format": null, 
+            "type": "string"
+        }, 
+        "hbgdkiSocioeconomicChar": {
+            "enum": [
+                "Yes", 
+                "No"
+            ], 
+            "description": "Socioeconomic characteristics", 
+            "title": "Socioeconomic characteristics", 
+            "required": false, 
+            "propertyOrder": "18", 
+            "display_format": null, 
+            "type": "string"
+        }, 
+        "hbgdkiFeedingCare": {
+            "enum": [
+                "Yes", 
+                "No"
+            ], 
+            "description": "Feeding care & practice", 
+            "title": "Feeding care & practice", 
+            "required": false, 
+            "propertyOrder": "19", 
+            "display_format": null, 
+            "type": "string"
+        }, 
+        "hbgdkiImmunizations": {
+            "enum": [
+                "Yes", 
+                "No"
+            ], 
+            "description": "Immunizations", 
+            "title": "Immunizations", 
+            "required": false, 
+            "propertyOrder": "20", 
+            "display_format": null, 
+            "type": "string"
+        }, 
+        "hbgdkiInfantChildhoodMorbidity": {
+            "enum": [
+                "Yes", 
+                "No"
+            ], 
+            "description": "Morbidity in infancy and childhood", 
+            "title": "Morbidity in infancy and childhood", 
+            "required": false, 
+            "propertyOrder": "21", 
+            "display_format": null, 
+            "type": "string"
+        }, 
+        "hbgdkiWaterSanHygiene": {
+            "enum": [
+                "Yes", 
+                "No"
+            ], 
+            "description": "Water, sanitation and hygiene standards", 
+            "title": "Water, sanitation and hygiene standards", 
+            "required": false, 
+            "propertyOrder": "22", 
+            "display_format": null, 
+            "type": "string"
+        }
+    }
+}

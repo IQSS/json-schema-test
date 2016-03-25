@@ -33,19 +33,15 @@ def get_json_file_list():
     """
     # get existing tsv file list
     tsv_files = [x for x in os.listdir(TSV_FILE_DIR) if x.endswith('.tsv')]
-    print 'tsv_files', tsv_files
     file_pairs = []
     # iterate through actual tsv files
     for tsv_file in tsv_files:
         json_file = join(JSON_SCHEMA_DIR, tsv_file.replace('.tsv', '.json'))
-        print '\n', tsv_file, json_file
         # Does a JSON schema exist?
         if isfile(json_file):
-            print 'YES'
             # Yes:  (tsv_file, json_file)   - basenames only
             file_pairs.append((tsv_file, basename(json_file)))
         else:
-            print 'NO'
             # No:  (tsv_file, None)   - basenames only
             file_pairs.append((tsv_file, None))
 
