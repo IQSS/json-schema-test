@@ -1,11 +1,16 @@
 # schema-test
 
-quick test. A mix of:
+Quick test. A mix of:
   - JSON schema editor from Jeremy Dorn
     - repository: https://github.com/jdorn/json-editor
     - example: http://jeremydorn.com/json-editor/
   - TSVs from Dataverse
     - https://github.com/IQSS/dataverse/tree/develop/scripts/api/data/metadatablocks
+
+## Install 
+
+- Instructions use [pip](https://pip.pypa.io/en/stable/installing/) and [virtualenv](https://virtualenv.pypa.io/en/latest/)
+
 
 ```
 mkvirtualenv schema-test
@@ -21,7 +26,10 @@ python manage.py runserver # to run a differnt port, e.g. 8070; python manage.py
 
 You should see something like:
 
+#### File listing
 ![file listing](https://raw.githubusercontent.com/iqss/json-schema-test/master/screenshots/tsv-file-list.png)
+
+#### JSON schema editor - J. Dorn
 ![JSON schema editor J. Dorn](https://raw.githubusercontent.com/iqss/json-schema-test/master/screenshots/schema-editor.png)
 
 ### Caveat
