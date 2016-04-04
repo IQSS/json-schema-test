@@ -160,7 +160,6 @@
                         "propertyOrder": "17", 
                         "description": "In cases where a Dataset contains more than one description (for example, one might be supplied by the data producer and another prepared by the data repository where the data are deposited), the date attribute is used to distinguish between the two descriptions. The date attribute follows the ISO convention of YYYY-MM-DD.", 
                         "title": "Date", 
-                        "pattern": "^(19|20)\\d\\d[\\-\\/.](0[1-9]|1[012])[\\-\\/.](0[1-9]|[12][0-9]|3[01])$", 
                         "display_format": "(#VALUE)", 
                         "required": false, 
                         "type": "string"
@@ -599,7 +598,6 @@
             "propertyOrder": "40", 
             "description": "Date when the data collection or other materials were produced (not distributed, published or archived).", 
             "title": "Production Date", 
-            "pattern": "^(19|20)\\d\\d[\\-\\/.](0[1-9]|1[012])[\\-\\/.](0[1-9]|[12][0-9]|3[01])$", 
             "display_format": null, 
             "required": false, 
             "type": "string"
@@ -748,7 +746,6 @@
             "propertyOrder": "54", 
             "description": "Date that the work was made available for distribution/presentation.", 
             "title": "Distribution Date", 
-            "pattern": "^(19|20)\\d\\d[\\-\\/.](0[1-9]|1[012])[\\-\\/.](0[1-9]|[12][0-9]|3[01])$", 
             "display_format": null, 
             "required": false, 
             "type": "string"
@@ -765,7 +762,6 @@
             "propertyOrder": "56", 
             "description": "Date that the Dataset was deposited into the repository.", 
             "title": "Deposit Date", 
-            "pattern": "^(19|20)\\d\\d[\\-\\/.](0[1-9]|1[012])[\\-\\/.](0[1-9]|[12][0-9]|3[01])$", 
             "display_format": null, 
             "required": false, 
             "type": "string"
@@ -780,7 +776,6 @@
                         "propertyOrder": "58", 
                         "description": "Start date which reflects the time period covered by the data, not the dates of coding or making documents machine-readable or the dates the data were collected.", 
                         "title": "Start", 
-                        "pattern": "^(19|20)\\d\\d[\\-\\/.](0[1-9]|1[012])[\\-\\/.](0[1-9]|[12][0-9]|3[01])$", 
                         "display_format": "#NAME: #VALUE", 
                         "required": false, 
                         "type": "string"
@@ -789,7 +784,6 @@
                         "propertyOrder": "59", 
                         "description": "End date which reflects the time period covered by the data, not the dates of coding or making documents machine-readable or the dates the data were collected.", 
                         "title": "End", 
-                        "pattern": "^(19|20)\\d\\d[\\-\\/.](0[1-9]|1[012])[\\-\\/.](0[1-9]|[12][0-9]|3[01])$", 
                         "display_format": "#NAME: #VALUE", 
                         "required": false, 
                         "type": "string"
@@ -811,7 +805,6 @@
                         "propertyOrder": "61", 
                         "description": "Date when the data collection started.", 
                         "title": "Start", 
-                        "pattern": "^(19|20)\\d\\d[\\-\\/.](0[1-9]|1[012])[\\-\\/.](0[1-9]|[12][0-9]|3[01])$", 
                         "display_format": "#NAME: #VALUE", 
                         "required": false, 
                         "type": "string"
@@ -820,7 +813,6 @@
                         "propertyOrder": "62", 
                         "description": "Date when the data collection ended.", 
                         "title": "End", 
-                        "pattern": "^(19|20)\\d\\d[\\-\\/.](0[1-9]|1[012])[\\-\\/.](0[1-9]|[12][0-9]|3[01])$", 
                         "display_format": "#NAME: #VALUE", 
                         "required": false, 
                         "type": "string"
@@ -933,5 +925,9 @@
             "required": false, 
             "type": "string"
         }
-    }
+    }, 
+    "required": [
+        "title", 
+        "subject"
+    ]
 }

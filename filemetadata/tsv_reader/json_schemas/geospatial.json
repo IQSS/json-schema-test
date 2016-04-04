@@ -351,5 +351,6 @@
             "uniqueItems": true, 
             "type": "array"
         }
-    }
+    }, 
+    "required": []
 }

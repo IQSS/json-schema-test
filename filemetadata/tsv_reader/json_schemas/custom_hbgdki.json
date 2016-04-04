@@ -262,5 +262,6 @@
             "display_format": null, 
             "type": "string"
         }
-    }
+    }, 
+    "required": []
 }

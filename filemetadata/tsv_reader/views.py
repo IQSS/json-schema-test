@@ -52,7 +52,17 @@ def view_tsv_files(request):
     Quick (insecure) hack
     """
 
-    context = { 'json_files' : get_json_file_list(),\
+    json_files_list = get_json_file_list()
+    num_json_files = len([x for x in json_files_list if x[1] is not None])
+
+    if len(json_files_list) == num_json_files:
+        all_files_created = True
+    else:
+        all_files_created = False
+
+    context = { 'json_files' : json_files_list,\
+            'num_json_files' : num_json_files,\
+            'all_files_created' : all_files_created,\
              'JSON_SCHEMA_DIR' : JSON_SCHEMA_DIR,\
              'TSV_FILE_DIR' : TSV_FILE_DIR }
     return render(request, 'tsv_reader/tsv_list.html', context)

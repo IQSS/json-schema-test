@@ -28,7 +28,6 @@
                         "propertyOrder": "3", 
                         "description": "The publication date for this journal volume/issue, which this Dataset is associated with (e.g., 1999).", 
                         "title": "Publication Date", 
-                        "pattern": "^(19|20)\\d\\d[\\-\\/.](0[1-9]|1[012])[\\-\\/.](0[1-9]|[12][0-9]|3[01])$", 
                         "display_format": null, 
                         "required": false, 
                         "type": "string"
@@ -82,5 +81,6 @@
             "display_format": null, 
             "type": "string"
         }
-    }
+    }, 
+    "required": []
 }

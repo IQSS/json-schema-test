@@ -368,5 +368,6 @@
             "required": false, 
             "type": "string"
         }
-    }
+    }, 
+    "required": []
 }

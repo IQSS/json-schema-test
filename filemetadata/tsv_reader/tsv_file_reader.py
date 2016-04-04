@@ -1,6 +1,12 @@
 """
 Read in Dataverse TSV files
     Examples: https://github.com/IQSS/dataverse/tree/develop/scripts/api/data/metadatablocks
+
+Convert them to JSON schemas to fit this JSON schema editor
+
+    https://github.com/jdorn/json-editor
+
+    Note: This does not necessarily follow JSON schema for required fields
 """
 import sys
 from os.path import isfile, isdir, join, basename
@@ -51,8 +57,11 @@ class MetadataReader(object):
         # Gather field info
         #
         field_ordered_dict = OrderedDict()
+        required_field_list = []
         for field_info in self.field_info_list:
             if 1:   #field_info.name == 'author':
+                if field_info.required:
+                    required_field_list.append(field_info.name)
                 field_ordered_dict[field_info.name] =\
                     field_info.as_json_schema_property()
                 #field_list.append(field_info.as_json_schema_property())
@@ -64,6 +73,7 @@ class MetadataReader(object):
         block_information['title'] = self.name
         block_information['type'] = 'object'
         block_information['properties'] = field_ordered_dict
+        #block_information['required'] = required_field_list
         print json.dumps(block_information, indent=4)
 
         json_fname = join(JSON_SCHEMA_DIR, basename(self.fname).replace('.tsv', '.json'))

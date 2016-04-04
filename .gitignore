@@ -62,3 +62,9 @@ target/
 .ipynb_checkpoints
 
 filemetadata/test_db/db_01.sqlite3
+
+filemetadata/api_test/dataset_native_json/2799475.json
+
+filemetadata/api_test/dataverse_creds.py
+filemetadata/api_test/dataset_native_json/*
+filemetadata/api_test/published_ds_ids.py

@@ -139,7 +139,6 @@
                         "propertyOrder": "13", 
                         "description": "Dataset Start Date", 
                         "title": "Start", 
-                        "pattern": "^(19|20)\\d\\d[\\-\\/.](0[1-9]|1[012])[\\-\\/.](0[1-9]|[12][0-9]|3[01])$", 
                         "display_format": null, 
                         "required": false, 
                         "type": "string"
@@ -148,7 +147,6 @@
                         "propertyOrder": "14", 
                         "description": "Dataset End Date", 
                         "title": "End", 
-                        "pattern": "^(19|20)\\d\\d[\\-\\/.](0[1-9]|1[012])[\\-\\/.](0[1-9]|[12][0-9]|3[01])$", 
                         "display_format": null, 
                         "required": false, 
                         "type": "string"
@@ -253,5 +251,6 @@
             "uniqueItems": true, 
             "type": "array"
         }
-    }
+    }, 
+    "required": []
 }
