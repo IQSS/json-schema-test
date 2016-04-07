@@ -14,6 +14,9 @@ from metadata_transformer import MetadataTransformer
 
 NATIVE_JSON_FOLDER = 'dataset_native_json'
 
+DOI_PREFIX = 'doi:'
+HDL_PREFIX = 'hdl:'
+
 class DataverseClientTest(object):
     """
     Basic look at the the DV API
@@ -27,13 +30,22 @@ class DataverseClientTest(object):
 
     def format_persisent_id(self, persisent_id):
         """
-        For now, assuming the persisent id is a DOI
+        Make sure the id has a doi: or hdl: prefix
         """
         assert persisent_id is not None, "persisent_id cannot be None"
-        if persisent_id.startswith('doi:') and len(persisent_id) > 4:
-            persisent_id = persisent_id[4:]
-        return persisent_id
+        if persisent_id.startswith(DOI_PREFIX):
+            return persisent_id
+        if persisent_id.startswith(HDL_PREFIX):
+            return persisent_id
 
+        if persisent_id.count('/') == 2:
+            # assume DOI as in doi:10.7910/DVN/26230 (w/o the "doi:")
+            return DOI_PREFIX + persisent_id
+        elif persisent_id.count('/') == 1:
+            # Assume HDL as in hdl:10904/10065 (w/o the "hdl")
+            return HDL_PREFIX + persisent_id
+
+        return persisent_id # Try our luck
 
     def get_metadata_blocks(self, dataset_id, version_id):
         """
@@ -70,7 +82,7 @@ class DataverseClientTest(object):
         """
         persisent_id = self.format_persisent_id(persisent_id)
 
-        api_url = '%s/api/datasets/:persistentId?persistentId=doi:%s' %\
+        api_url = '%s/api/datasets/:persistentId?persistentId=%s' %\
                     (self.dataverse_server,\
                         persisent_id)
 
@@ -106,10 +118,10 @@ class DataverseClientTest(object):
 
         return rjson.get('data', None)
 
-def show_info(doi):
+def show_info(persisent_id):
     dc = DataverseClientTest()
 
-    dataset_json = dc.get_dataset_by_persisent_id(doi)
+    dataset_json = dc.get_dataset_by_persisent_id(persisent_id)
     #print dataset_json.keys()
     #return
     print json.dumps(dataset_json, indent=4)
@@ -177,7 +189,7 @@ def pull_down_native_json():
     cnt = 0
     for ds_id in ds_id_list:
         cnt += 1
-        if cnt < 1470:
+        if cnt < 5800:
             continue
         msgt('(%s) Pull published dataset id: %s' % (cnt, ds_id))
         pull_and_save_file(ds_id)
@@ -196,10 +208,13 @@ validate(d, schema)
 """
 
 if __name__ == '__main__':
-    simplify_metadata_blocks()
+    #simplify_metadata_blocks()
+    pull_down_native_json()
+
     doi = 'doi:10.7910/DVN/TAG25E'
     doi = '10.7910/DVN/28977'
+    hdl = 'hdl:10904/10065'
     xdoi = 'doi:10.7910/DVN/26230'
     xdoi = 'doi:10.7910/DVN/IHQAWE'
 
-    #show_info(doi)
+    #show_info(hdl)
