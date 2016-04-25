@@ -129,7 +129,7 @@ def show_info(persisent_id):
     full_fname = join(NATIVE_JSON_FOLDER, fname)
     open(full_fname, 'w').write(json.dumps(dataset_json, indent=4))
     msgt('file written: %s' % full_fname)
-    #print json.dumps(dataset_json, indent=4)
+    print json.dumps(dataset_json, indent=4)
     return
     #metadata_info_dict = json.loads(citation_test_block,\
     #        object_pairs_hook=OrderedDict)
@@ -189,7 +189,7 @@ def pull_down_native_json():
     cnt = 0
     for ds_id in ds_id_list:
         cnt += 1
-        if cnt < 5800:
+        if cnt < 7800:
             continue
         msgt('(%s) Pull published dataset id: %s' % (cnt, ds_id))
         pull_and_save_file(ds_id)
@@ -209,12 +209,12 @@ validate(d, schema)
 
 if __name__ == '__main__':
     #simplify_metadata_blocks()
-    pull_down_native_json()
+    #pull_down_native_json()
 
     doi = 'doi:10.7910/DVN/TAG25E'
     doi = '10.7910/DVN/28977'
     hdl = 'hdl:10904/10065'
     xdoi = 'doi:10.7910/DVN/26230'
     xdoi = 'doi:10.7910/DVN/IHQAWE'
-
-    #show_info(hdl)
+    doi = 'doi:10.7910/DVN/VB5KKA'
+    show_info(doi)

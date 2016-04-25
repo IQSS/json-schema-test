@@ -3,27 +3,24 @@
     "type": "object", 
     "properties": {
         "title": {
-            "propertyOrder": "0", 
-            "description": "Full title by which the Dataset is known.", 
-            "title": "Title", 
             "display_format": null, 
             "required": true, 
+            "description": "Full title by which the Dataset is known.", 
+            "title": "Title", 
             "type": "string"
         }, 
         "subtitle": {
-            "propertyOrder": "1", 
-            "description": "A secondary title used to amplify or state certain limitations on the main title.", 
-            "title": "Subtitle", 
             "display_format": null, 
             "required": false, 
+            "description": "A secondary title used to amplify or state certain limitations on the main title.", 
+            "title": "Subtitle", 
             "type": "string"
         }, 
         "alternativeTitle": {
-            "propertyOrder": "2", 
-            "description": "A title by which the work is commonly referred, or an abbreviation of the title.", 
-            "title": "Alternative Title", 
             "display_format": null, 
             "required": false, 
+            "description": "A title by which the work is commonly referred, or an abbreviation of the title.", 
+            "title": "Alternative Title", 
             "type": "string"
         }, 
         "otherId": {
@@ -33,19 +30,17 @@
                 "type": "object", 
                 "properties": {
                     "otherIdAgency": {
-                        "propertyOrder": "4", 
-                        "description": "Name of agency which generated this identifier.", 
-                        "title": "Agency", 
                         "display_format": "#VALUE", 
                         "required": false, 
+                        "description": "Name of agency which generated this identifier.", 
+                        "title": "Agency", 
                         "type": "string"
                     }, 
                     "otherIdValue": {
-                        "propertyOrder": "5", 
-                        "description": "Other identifier that corresponds to this Dataset.", 
-                        "title": "Identifier", 
                         "display_format": "#VALUE", 
                         "required": false, 
+                        "description": "Other identifier that corresponds to this Dataset.", 
+                        "title": "Identifier", 
                         "type": "string"
                     }
                 }, 
@@ -62,40 +57,36 @@
                 "type": "object", 
                 "properties": {
                     "authorName": {
-                        "propertyOrder": "7", 
-                        "description": "The author's Family Name, Given Name or the name of the organization responsible for this Dataset.", 
-                        "title": "Name", 
                         "display_format": "#VALUE", 
                         "required": true, 
+                        "description": "The author's Family Name, Given Name or the name of the organization responsible for this Dataset.", 
+                        "title": "Name", 
                         "type": "string"
                     }, 
                     "authorAffiliation": {
-                        "propertyOrder": "8", 
-                        "description": "The organization with which the author is affiliated.", 
-                        "title": "Affiliation", 
                         "display_format": "(#VALUE)", 
                         "required": false, 
+                        "description": "The organization with which the author is affiliated.", 
+                        "title": "Affiliation", 
                         "type": "string"
                     }, 
                     "authorIdentifierScheme": {
+                        "display_format": "- #VALUE:", 
+                        "required": false, 
+                        "description": "Name of the identifier scheme (ORCID, ISNI).", 
+                        "title": "Identifier Scheme", 
                         "enum": [
                             "ORCID", 
                             "ISNI", 
                             "LCNA"
                         ], 
-                        "description": "Name of the identifier scheme (ORCID, ISNI).", 
-                        "title": "Identifier Scheme", 
-                        "required": false, 
-                        "propertyOrder": "9", 
-                        "display_format": "- #VALUE:", 
                         "type": "string"
                     }, 
                     "authorIdentifier": {
-                        "propertyOrder": "10", 
-                        "description": "Uniquely identifies an individual author or organization, according to various schemes.", 
-                        "title": "Identifier", 
                         "display_format": "#VALUE", 
                         "required": false, 
+                        "description": "Uniquely identifies an individual author or organization, according to various schemes.", 
+                        "title": "Identifier", 
                         "type": "string"
                     }
                 }, 
@@ -112,27 +103,24 @@
                 "type": "object", 
                 "properties": {
                     "datasetContactName": {
-                        "propertyOrder": "12", 
-                        "description": "The contact's Family Name, Given Name or the name of the organization.", 
-                        "title": "Name", 
                         "display_format": "#VALUE", 
                         "required": false, 
+                        "description": "The contact's Family Name, Given Name or the name of the organization.", 
+                        "title": "Name", 
                         "type": "string"
                     }, 
                     "datasetContactAffiliation": {
-                        "propertyOrder": "13", 
-                        "description": "The organization with which the contact is affiliated.", 
-                        "title": "Affiliation", 
                         "display_format": "(#VALUE)", 
                         "required": false, 
+                        "description": "The organization with which the contact is affiliated.", 
+                        "title": "Affiliation", 
                         "type": "string"
                     }, 
                     "datasetContactEmail": {
-                        "propertyOrder": "14", 
-                        "description": "The e-mail address(es) of the contact(s) for the Dataset. This will not be displayed.", 
-                        "title": "E-mail", 
                         "display_format": "#EMAIL", 
                         "required": true, 
+                        "description": "The e-mail address(es) of the contact(s) for the Dataset. This will not be displayed.", 
+                        "title": "E-mail", 
                         "type": "string"
                     }
                 }, 
@@ -149,19 +137,17 @@
                 "type": "object", 
                 "properties": {
                     "dsDescriptionValue": {
-                        "propertyOrder": "16", 
-                        "description": "A summary describing the purpose, nature, and scope of the Dataset.", 
-                        "title": "Text", 
                         "display_format": "#VALUE", 
                         "required": true, 
+                        "description": "A summary describing the purpose, nature, and scope of the Dataset.", 
+                        "title": "Text", 
                         "type": "string"
                     }, 
                     "dsDescriptionDate": {
-                        "propertyOrder": "17", 
-                        "description": "In cases where a Dataset contains more than one description (for example, one might be supplied by the data producer and another prepared by the data repository where the data are deposited), the date attribute is used to distinguish between the two descriptions. The date attribute follows the ISO convention of YYYY-MM-DD.", 
-                        "title": "Date", 
                         "display_format": "(#VALUE)", 
                         "required": false, 
+                        "description": "In cases where a Dataset contains more than one description (for example, one might be supplied by the data producer and another prepared by the data repository where the data are deposited), the date attribute is used to distinguish between the two descriptions. The date attribute follows the ISO convention of YYYY-MM-DD.", 
+                        "title": "Date", 
                         "type": "string"
                     }
                 }, 
@@ -172,6 +158,10 @@
             "type": "array"
         }, 
         "subject": {
+            "display_format": null, 
+            "required": true, 
+            "description": "Domain-specific Subject Categories that are topically relevant to the Dataset.", 
+            "title": "Subject", 
             "enum": [
                 "Agricultural Sciences", 
                 "Arts and Humanities", 
@@ -188,11 +178,6 @@
                 "Social Sciences", 
                 "Other"
             ], 
-            "description": "Domain-specific Subject Categories that are topically relevant to the Dataset.", 
-            "title": "Subject", 
-            "required": true, 
-            "propertyOrder": "18", 
-            "display_format": null, 
             "type": "string"
         }, 
         "keyword": {
@@ -202,28 +187,25 @@
                 "type": "object", 
                 "properties": {
                     "keywordValue": {
-                        "propertyOrder": "20", 
-                        "description": "Key terms that describe important aspects of the Dataset. Can be used for building keyword indexes and for classification and retrieval purposes. A controlled vocabulary can be employed. The vocab attribute is provided for specification of the controlled vocabulary in use, such as LCSH, MeSH, or others. The vocabURI attribute specifies the location for the full controlled vocabulary.", 
-                        "title": "Term", 
                         "display_format": "#VALUE", 
                         "required": false, 
+                        "description": "Key terms that describe important aspects of the Dataset. Can be used for building keyword indexes and for classification and retrieval purposes. A controlled vocabulary can be employed. The vocab attribute is provided for specification of the controlled vocabulary in use, such as LCSH, MeSH, or others. The vocabURI attribute specifies the location for the full controlled vocabulary.", 
+                        "title": "Term", 
                         "type": "string"
                     }, 
                     "keywordVocabulary": {
-                        "propertyOrder": "21", 
-                        "description": "For the specification of the keyword controlled vocabulary in use, such as LCSH, MeSH, or others.", 
-                        "title": "Vocabulary", 
                         "display_format": "(#VALUE)", 
                         "required": false, 
+                        "description": "For the specification of the keyword controlled vocabulary in use, such as LCSH, MeSH, or others.", 
+                        "title": "Vocabulary", 
                         "type": "string"
                     }, 
                     "keywordVocabularyURI": {
-                        "propertyOrder": "22", 
+                        "display_format": "<a href='#VALUE'>#VALUE</a>", 
+                        "required": false, 
                         "description": "Keyword vocabulary URL points to the web presence that describes the keyword vocabulary, if appropriate. Enter an absolute URL where the keyword vocabulary web site is found, such as http://www.my.org.", 
                         "title": "Vocabulary URL", 
                         "pattern": "some pattern", 
-                        "display_format": "<a href='#VALUE'>#VALUE</a>", 
-                        "required": false, 
                         "type": "string"
                     }
                 }, 
@@ -240,28 +222,25 @@
                 "type": "object", 
                 "properties": {
                     "topicClassValue": {
-                        "propertyOrder": "24", 
-                        "description": "Topic or Subject term that is relevant to this Dataset.", 
-                        "title": "Term", 
                         "display_format": "#VALUE", 
                         "required": false, 
+                        "description": "Topic or Subject term that is relevant to this Dataset.", 
+                        "title": "Term", 
                         "type": "string"
                     }, 
                     "topicClassVocab": {
-                        "propertyOrder": "25", 
-                        "description": "Provided for specification of the controlled vocabulary in use, e.g., LCSH, MeSH, etc.", 
-                        "title": "Vocabulary", 
                         "display_format": "(#VALUE)", 
                         "required": false, 
+                        "description": "Provided for specification of the controlled vocabulary in use, e.g., LCSH, MeSH, etc.", 
+                        "title": "Vocabulary", 
                         "type": "string"
                     }, 
                     "topicClassVocabURI": {
-                        "propertyOrder": "26", 
+                        "display_format": "<a href='#VALUE'>#VALUE</a>", 
+                        "required": false, 
                         "description": "Specifies the URL location for the full controlled vocabulary.", 
                         "title": "Vocabulary URL", 
                         "pattern": "some pattern", 
-                        "display_format": "<a href='#VALUE'>#VALUE</a>", 
-                        "required": false, 
                         "type": "string"
                     }
                 }, 
@@ -278,14 +257,17 @@
                 "type": "object", 
                 "properties": {
                     "publicationCitation": {
-                        "propertyOrder": "28", 
-                        "description": "The full bibliographic citation for this related publication.", 
-                        "title": "Citation", 
                         "display_format": "#VALUE", 
                         "required": false, 
+                        "description": "The full bibliographic citation for this related publication.", 
+                        "title": "Citation", 
                         "type": "string"
                     }, 
                     "publicationIDType": {
+                        "display_format": "#VALUE:", 
+                        "required": false, 
+                        "description": "The type of digital identifier used for this publication (e.g., Digital Object Identifier (DOI)).", 
+                        "title": "ID Type", 
                         "enum": [
                             "ark", 
                             "arXiv", 
@@ -305,28 +287,21 @@
                             "url", 
                             "urn"
                         ], 
-                        "description": "The type of digital identifier used for this publication (e.g., Digital Object Identifier (DOI)).", 
-                        "title": "ID Type", 
-                        "required": false, 
-                        "propertyOrder": "29", 
-                        "display_format": "#VALUE:", 
                         "type": "string"
                     }, 
                     "publicationIDNumber": {
-                        "propertyOrder": "30", 
-                        "description": "The identifier for the selected ID type.", 
-                        "title": "ID Number", 
                         "display_format": "#VALUE", 
                         "required": false, 
+                        "description": "The identifier for the selected ID type.", 
+                        "title": "ID Number", 
                         "type": "string"
                     }, 
                     "publicationURL": {
-                        "propertyOrder": "31", 
+                        "display_format": "<a href='#VALUE'>#VALUE</a>", 
+                        "required": false, 
                         "description": "Link to the publication web page (e.g., journal article page, archive record page, or other).", 
                         "title": "URL", 
                         "pattern": "some pattern", 
-                        "display_format": "<a href='#VALUE'>#VALUE</a>", 
-                        "required": false, 
                         "type": "string"
                     }
                 }, 
@@ -337,14 +312,17 @@
             "type": "array"
         }, 
         "notesText": {
-            "propertyOrder": "32", 
-            "description": "Additional important information about the Dataset.", 
-            "title": "Notes", 
             "display_format": null, 
             "required": false, 
+            "description": "Additional important information about the Dataset.", 
+            "title": "Notes", 
             "type": "string"
         }, 
         "language": {
+            "display_format": null, 
+            "required": false, 
+            "description": "Language of the Dataset", 
+            "title": "Language", 
             "enum": [
                 "Abkhaz", 
                 "Afar", 
@@ -532,11 +510,6 @@
                 "Zulu", 
                 "Not applicable"
             ], 
-            "description": "Language of the Dataset", 
-            "title": "Language", 
-            "required": false, 
-            "propertyOrder": "33", 
-            "display_format": null, 
             "type": "string"
         }, 
         "producer": {
@@ -546,45 +519,40 @@
                 "type": "object", 
                 "properties": {
                     "producerName": {
-                        "propertyOrder": "35", 
-                        "description": "Producer name", 
-                        "title": "Name", 
                         "display_format": "#VALUE", 
                         "required": false, 
+                        "description": "Producer name", 
+                        "title": "Name", 
                         "type": "string"
                     }, 
                     "producerAffiliation": {
-                        "propertyOrder": "36", 
-                        "description": "The organization with which the producer is affiliated.", 
-                        "title": "Affiliation", 
                         "display_format": "(#VALUE)", 
                         "required": false, 
+                        "description": "The organization with which the producer is affiliated.", 
+                        "title": "Affiliation", 
                         "type": "string"
                     }, 
                     "producerAbbreviation": {
-                        "propertyOrder": "37", 
-                        "description": "The abbreviation by which the producer is commonly known. (ex. IQSS, ICPSR)", 
-                        "title": "Abbreviation", 
                         "display_format": "(#VALUE)", 
                         "required": false, 
+                        "description": "The abbreviation by which the producer is commonly known. (ex. IQSS, ICPSR)", 
+                        "title": "Abbreviation", 
                         "type": "string"
                     }, 
                     "producerURL": {
-                        "propertyOrder": "38", 
+                        "display_format": "<a href='#VALUE'>#VALUE</a>", 
+                        "required": false, 
                         "description": "Producer URL points to the producer's web presence, if appropriate. Enter an absolute URL where the producer's web site is found, such as http://www.my.org.", 
                         "title": "URL", 
                         "pattern": "some pattern", 
-                        "display_format": "<a href='#VALUE'>#VALUE</a>", 
-                        "required": false, 
                         "type": "string"
                     }, 
                     "producerLogoURL": {
-                        "propertyOrder": "39", 
+                        "display_format": "<img src='#VALUE' alt='#NAME' class='metadata-logo'/><br/>", 
+                        "required": false, 
                         "description": "URL for the producer's logo, which points to this  producer's web-accessible logo image. Enter an absolute URL where the producer's logo image is found, such as http://www.my.org/images/logo.gif.", 
                         "title": "Logo URL", 
                         "pattern": "some pattern", 
-                        "display_format": "<img src='#VALUE' alt='#NAME' class='metadata-logo'/><br/>", 
-                        "required": false, 
                         "type": "string"
                     }
                 }, 
@@ -595,19 +563,17 @@
             "type": "array"
         }, 
         "productionDate": {
-            "propertyOrder": "40", 
-            "description": "Date when the data collection or other materials were produced (not distributed, published or archived).", 
-            "title": "Production Date", 
             "display_format": null, 
             "required": false, 
+            "description": "Date when the data collection or other materials were produced (not distributed, published or archived).", 
+            "title": "Production Date", 
             "type": "string"
         }, 
         "productionPlace": {
-            "propertyOrder": "41", 
-            "description": "The location where the data collection and any other related materials were produced.", 
-            "title": "Production Place", 
             "display_format": null, 
             "required": false, 
+            "description": "The location where the data collection and any other related materials were produced.", 
+            "title": "Production Place", 
             "type": "string"
         }, 
         "contributor": {
@@ -617,6 +583,10 @@
                 "type": "object", 
                 "properties": {
                     "contributorType": {
+                        "display_format": "#VALUE", 
+                        "required": false, 
+                        "description": "The type of contributor of the  resource.", 
+                        "title": "Type", 
                         "enum": [
                             "Data Collector", 
                             "Data Curator", 
@@ -636,19 +606,13 @@
                             "Work Package Leader", 
                             "Other"
                         ], 
-                        "description": "The type of contributor of the  resource.", 
-                        "title": "Type", 
-                        "required": false, 
-                        "propertyOrder": "43", 
-                        "display_format": "#VALUE", 
                         "type": "string"
                     }, 
                     "contributorName": {
-                        "propertyOrder": "44", 
-                        "description": "The Family Name, Given Name or organization name of the contributor.", 
-                        "title": "Name", 
                         "display_format": "#VALUE", 
                         "required": false, 
+                        "description": "The Family Name, Given Name or organization name of the contributor.", 
+                        "title": "Name", 
                         "type": "string"
                     }
                 }, 
@@ -665,19 +629,17 @@
                 "type": "object", 
                 "properties": {
                     "grantNumberAgency": {
-                        "propertyOrder": "46", 
-                        "description": "Grant Number Agency", 
-                        "title": "Grant Agency", 
                         "display_format": "#VALUE", 
                         "required": false, 
+                        "description": "Grant Number Agency", 
+                        "title": "Grant Agency", 
                         "type": "string"
                     }, 
                     "grantNumberValue": {
-                        "propertyOrder": "47", 
-                        "description": "The grant or contract number of the project that  sponsored the effort.", 
-                        "title": "Grant Number", 
                         "display_format": "#VALUE", 
                         "required": false, 
+                        "description": "The grant or contract number of the project that  sponsored the effort.", 
+                        "title": "Grant Number", 
                         "type": "string"
                     }
                 }, 
@@ -694,45 +656,40 @@
                 "type": "object", 
                 "properties": {
                     "distributorName": {
-                        "propertyOrder": "49", 
-                        "description": "Distributor name", 
-                        "title": "Name", 
                         "display_format": "#VALUE", 
                         "required": false, 
+                        "description": "Distributor name", 
+                        "title": "Name", 
                         "type": "string"
                     }, 
                     "distributorAffiliation": {
-                        "propertyOrder": "50", 
-                        "description": "The organization with which the distributor contact is affiliated.", 
-                        "title": "Affiliation", 
                         "display_format": "(#VALUE)", 
                         "required": false, 
+                        "description": "The organization with which the distributor contact is affiliated.", 
+                        "title": "Affiliation", 
                         "type": "string"
                     }, 
                     "distributorAbbreviation": {
-                        "propertyOrder": "51", 
-                        "description": "The abbreviation by which this distributor is commonly known (e.g., IQSS, ICPSR).", 
-                        "title": "Abbreviation", 
                         "display_format": "(#VALUE)", 
                         "required": false, 
+                        "description": "The abbreviation by which this distributor is commonly known (e.g., IQSS, ICPSR).", 
+                        "title": "Abbreviation", 
                         "type": "string"
                     }, 
                     "distributorURL": {
-                        "propertyOrder": "52", 
+                        "display_format": "<a href='#VALUE'>#VALUE</a>", 
+                        "required": false, 
                         "description": "Distributor URL points to the distributor's web presence, if appropriate. Enter an absolute URL where the distributor's web site is found, such as http://www.my.org.", 
                         "title": "URL", 
                         "pattern": "some pattern", 
-                        "display_format": "<a href='#VALUE'>#VALUE</a>", 
-                        "required": false, 
                         "type": "string"
                     }, 
                     "distributorLogoURL": {
-                        "propertyOrder": "53", 
+                        "display_format": "<img src='#VALUE' alt='#NAME' class='metadata-logo'/><br/>", 
+                        "required": false, 
                         "description": "URL of the distributor's logo, which points to this  distributor's web-accessible logo image. Enter an absolute URL where the distributor's logo image is found, such as http://www.my.org/images/logo.gif.", 
                         "title": "Logo URL", 
                         "pattern": "some pattern", 
-                        "display_format": "<img src='#VALUE' alt='#NAME' class='metadata-logo'/><br/>", 
-                        "required": false, 
                         "type": "string"
                     }
                 }, 
@@ -743,27 +700,24 @@
             "type": "array"
         }, 
         "distributionDate": {
-            "propertyOrder": "54", 
-            "description": "Date that the work was made available for distribution/presentation.", 
-            "title": "Distribution Date", 
             "display_format": null, 
             "required": false, 
+            "description": "Date that the work was made available for distribution/presentation.", 
+            "title": "Distribution Date", 
             "type": "string"
         }, 
         "depositor": {
-            "propertyOrder": "55", 
-            "description": "The person (Family Name, Given Name) or the name of the organization that deposited this Dataset to the repository.", 
-            "title": "Depositor", 
             "display_format": null, 
             "required": false, 
+            "description": "The person (Family Name, Given Name) or the name of the organization that deposited this Dataset to the repository.", 
+            "title": "Depositor", 
             "type": "string"
         }, 
         "dateOfDeposit": {
-            "propertyOrder": "56", 
-            "description": "Date that the Dataset was deposited into the repository.", 
-            "title": "Deposit Date", 
             "display_format": null, 
             "required": false, 
+            "description": "Date that the Dataset was deposited into the repository.", 
+            "title": "Deposit Date", 
             "type": "string"
         }, 
         "timePeriodCovered": {
@@ -773,19 +727,17 @@
                 "type": "object", 
                 "properties": {
                     "timePeriodCoveredStart": {
-                        "propertyOrder": "58", 
-                        "description": "Start date which reflects the time period covered by the data, not the dates of coding or making documents machine-readable or the dates the data were collected.", 
-                        "title": "Start", 
                         "display_format": "#NAME: #VALUE", 
                         "required": false, 
+                        "description": "Start date which reflects the time period covered by the data, not the dates of coding or making documents machine-readable or the dates the data were collected.", 
+                        "title": "Start", 
                         "type": "string"
                     }, 
                     "timePeriodCoveredEnd": {
-                        "propertyOrder": "59", 
-                        "description": "End date which reflects the time period covered by the data, not the dates of coding or making documents machine-readable or the dates the data were collected.", 
-                        "title": "End", 
                         "display_format": "#NAME: #VALUE", 
                         "required": false, 
+                        "description": "End date which reflects the time period covered by the data, not the dates of coding or making documents machine-readable or the dates the data were collected.", 
+                        "title": "End", 
                         "type": "string"
                     }
                 }, 
@@ -802,19 +754,17 @@
                 "type": "object", 
                 "properties": {
                     "dateOfCollectionStart": {
-                        "propertyOrder": "61", 
-                        "description": "Date when the data collection started.", 
-                        "title": "Start", 
                         "display_format": "#NAME: #VALUE", 
                         "required": false, 
+                        "description": "Date when the data collection started.", 
+                        "title": "Start", 
                         "type": "string"
                     }, 
                     "dateOfCollectionEnd": {
-                        "propertyOrder": "62", 
-                        "description": "Date when the data collection ended.", 
-                        "title": "End", 
                         "display_format": "#NAME: #VALUE", 
                         "required": false, 
+                        "description": "Date when the data collection ended.", 
+                        "title": "End", 
                         "type": "string"
                     }
                 }, 
@@ -825,19 +775,17 @@
             "type": "array"
         }, 
         "kindOfData": {
-            "propertyOrder": "63", 
-            "description": "Type of data included in the file: survey data, census/enumeration data, aggregate data, clinical data, event/transaction data, program source code, machine-readable text, administrative records data, experimental data, psychological test, textual data, coded textual, coded documents, time budget diaries, observation data/ratings, process-produced data, or other.", 
-            "title": "Kind of Data", 
             "display_format": null, 
             "required": false, 
+            "description": "Type of data included in the file: survey data, census/enumeration data, aggregate data, clinical data, event/transaction data, program source code, machine-readable text, administrative records data, experimental data, psychological test, textual data, coded textual, coded documents, time budget diaries, observation data/ratings, process-produced data, or other.", 
+            "title": "Kind of Data", 
             "type": "string"
         }, 
         "series": {
-            "propertyOrder": "64", 
-            "description": "Information about the Dataset series.", 
-            "title": "Series", 
             "display_format": ":", 
             "required": false, 
+            "description": "Information about the Dataset series.", 
+            "title": "Series", 
             "type": "string"
         }, 
         "software": {
@@ -847,19 +795,17 @@
                 "type": "object", 
                 "properties": {
                     "softwareName": {
-                        "propertyOrder": "68", 
-                        "description": "Name of software used to generate the Dataset.", 
-                        "title": "Name", 
                         "display_format": "#VALUE", 
                         "required": false, 
+                        "description": "Name of software used to generate the Dataset.", 
+                        "title": "Name", 
                         "type": "string"
                     }, 
                     "softwareVersion": {
-                        "propertyOrder": "69", 
-                        "description": "Version of the software used to generate the Dataset.", 
-                        "title": "Version", 
                         "display_format": "#NAME: #VALUE", 
                         "required": false, 
+                        "description": "Version of the software used to generate the Dataset.", 
+                        "title": "Version", 
                         "type": "string"
                     }
                 }, 
@@ -870,64 +816,53 @@
             "type": "array"
         }, 
         "relatedMaterial": {
-            "propertyOrder": "70", 
-            "description": "Any material related to this Dataset.", 
-            "title": "Related Material", 
             "display_format": null, 
             "required": false, 
+            "description": "Any material related to this Dataset.", 
+            "title": "Related Material", 
             "type": "string"
         }, 
         "relatedDatasets": {
-            "propertyOrder": "71", 
-            "description": "Any Datasets that are related to this Dataset, such as previous research on this subject.", 
-            "title": "Related Datasets", 
             "display_format": null, 
             "required": false, 
+            "description": "Any Datasets that are related to this Dataset, such as previous research on this subject.", 
+            "title": "Related Datasets", 
             "type": "string"
         }, 
         "otherReferences": {
-            "propertyOrder": "72", 
-            "description": "Any references that would serve as background or supporting material to this Dataset.", 
-            "title": "Other References", 
             "display_format": null, 
             "required": false, 
+            "description": "Any references that would serve as background or supporting material to this Dataset.", 
+            "title": "Other References", 
             "type": "string"
         }, 
         "dataSources": {
-            "propertyOrder": "73", 
-            "description": "List of books, articles, serials, or machine-readable data files that served as the sources of the data collection.", 
-            "title": "Data Sources", 
             "display_format": null, 
             "required": false, 
+            "description": "List of books, articles, serials, or machine-readable data files that served as the sources of the data collection.", 
+            "title": "Data Sources", 
             "type": "string"
         }, 
         "originOfSources": {
-            "propertyOrder": "74", 
-            "description": "For historical materials, information about the origin of the sources and the rules followed in establishing the sources should be specified.", 
-            "title": "Origin of Sources", 
             "display_format": null, 
             "required": false, 
+            "description": "For historical materials, information about the origin of the sources and the rules followed in establishing the sources should be specified.", 
+            "title": "Origin of Sources", 
             "type": "string"
         }, 
         "characteristicOfSources": {
-            "propertyOrder": "75", 
-            "description": "Assessment of characteristics and source material.", 
-            "title": "Characteristic of Sources Noted", 
             "display_format": null, 
             "required": false, 
+            "description": "Assessment of characteristics and source material.", 
+            "title": "Characteristic of Sources Noted", 
             "type": "string"
         }, 
         "accessToSources": {
-            "propertyOrder": "76", 
-            "description": "Level of documentation of the original sources.", 
-            "title": "Documentation and Access to Sources", 
             "display_format": null, 
             "required": false, 
+            "description": "Level of documentation of the original sources.", 
+            "title": "Documentation and Access to Sources", 
             "type": "string"
         }
-    }, 
-    "required": [
-        "title", 
-        "subject"
-    ]
+    }
 }

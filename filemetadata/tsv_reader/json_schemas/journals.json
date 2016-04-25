@@ -9,27 +9,24 @@
                 "type": "object", 
                 "properties": {
                     "journalVolume": {
-                        "propertyOrder": "1", 
-                        "description": "The journal volume which this Dataset is associated with (e.g., Volume 4).", 
-                        "title": "Volume", 
                         "display_format": null, 
                         "required": false, 
+                        "description": "The journal volume which this Dataset is associated with (e.g., Volume 4).", 
+                        "title": "Volume", 
                         "type": "string"
                     }, 
                     "journalIssue": {
-                        "propertyOrder": "2", 
-                        "description": "The journal issue number which this Dataset is associated with (e.g., Number 2, Autumn).", 
-                        "title": "Issue", 
                         "display_format": null, 
                         "required": false, 
+                        "description": "The journal issue number which this Dataset is associated with (e.g., Number 2, Autumn).", 
+                        "title": "Issue", 
                         "type": "string"
                     }, 
                     "journalPubDate": {
-                        "propertyOrder": "3", 
-                        "description": "The publication date for this journal volume/issue, which this Dataset is associated with (e.g., 1999).", 
-                        "title": "Publication Date", 
                         "display_format": null, 
                         "required": false, 
+                        "description": "The publication date for this journal volume/issue, which this Dataset is associated with (e.g., 1999).", 
+                        "title": "Publication Date", 
                         "type": "string"
                     }
                 }, 
@@ -40,6 +37,10 @@
             "type": "array"
         }, 
         "journalArticleType": {
+            "display_format": null, 
+            "required": false, 
+            "description": "Indicates what kind of article this is, for example, a research article, a commentary, a book or product review, a case report, a calendar, etc (based on JATS).", 
+            "title": "Type of Article", 
             "enum": [
                 "abstract", 
                 "addendum", 
@@ -74,13 +75,7 @@
                 "translation", 
                 "other"
             ], 
-            "description": "Indicates what kind of article this is, for example, a research article, a commentary, a book or product review, a case report, a calendar, etc (based on JATS).", 
-            "title": "Type of Article", 
-            "required": false, 
-            "propertyOrder": "4", 
-            "display_format": null, 
             "type": "string"
         }
-    }, 
-    "required": []
+    }
 }

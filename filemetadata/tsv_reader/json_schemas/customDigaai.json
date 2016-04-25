@@ -3,6 +3,10 @@
     "type": "object", 
     "properties": {
         "titulo": {
+            "display_format": null, 
+            "required": false, 
+            "description": "T\u00edtulo do jornal ou revista.", 
+            "title": "T\u00edtulo", 
             "enum": [
                 "Achei USA", 
                 "Acontece Magazine", 
@@ -42,45 +46,35 @@
                 "Today Magazine", 
                 "Viver Magazine"
             ], 
-            "description": "T\u00edtulo do jornal ou revista.", 
-            "title": "T\u00edtulo", 
-            "required": false, 
-            "propertyOrder": "0", 
-            "display_format": null, 
             "type": "string"
         }, 
         "numero": {
-            "propertyOrder": "1", 
-            "description": "N\u00famero do jornal ou revista.", 
-            "title": "N\u00famero", 
             "display_format": null, 
             "required": false, 
+            "description": "N\u00famero do jornal ou revista.", 
+            "title": "N\u00famero", 
             "type": "string"
         }, 
         "datadePublicao": {
-            "propertyOrder": "2", 
-            "description": "Entrar dia/mes/ano.", 
-            "title": "Data de Publica\u00e7\u00e3o", 
             "display_format": null, 
             "required": false, 
+            "description": "Entrar dia/mes/ano.", 
+            "title": "Data de Publica\u00e7\u00e3o", 
             "type": "string"
         }, 
         "localdePublicao": {
-            "propertyOrder": "3", 
-            "description": "Local de Publica\u00e7\u00e3o.", 
-            "title": "Local de Publica\u00e7\u00e3o", 
             "display_format": null, 
             "required": false, 
+            "description": "Local de Publica\u00e7\u00e3o.", 
+            "title": "Local de Publica\u00e7\u00e3o", 
             "type": "string"
         }, 
         "proprietrio": {
-            "propertyOrder": "4", 
-            "description": "Propriet\u00e1rio", 
-            "title": "Propriet\u00e1rio", 
             "display_format": null, 
             "required": false, 
+            "description": "Propriet\u00e1rio", 
+            "title": "Propriet\u00e1rio", 
             "type": "string"
         }
-    }, 
-    "required": []
+    }
 }

@@ -18,8 +18,35 @@ from django.contrib import admin
 from django.conf.urls.static import static
 from django.conf import settings
 
-urlpatterns = [
-    url(r'^/?', include('tsv_reader.urls')),
+from django.contrib.auth.models import User
+from rest_framework import routers, serializers, viewsets
 
+from metadata_organizer.serializers import MetadataSchemaViewSet
+
+# Serializers define the API representation.
+class UserSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = User
+        fields = ('url', 'username', 'email', 'is_staff')
+
+# ViewSets define the view behavior.
+class UserViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+# Routers provide an easy way of automatically determining the URL conf.
+router = routers.DefaultRouter()
+router.register(r'users', UserViewSet)
+router.register(r'metadata_schemas', MetadataSchemaViewSet)
+
+urlpatterns = [
+    url(r'^', include('tsv_reader.urls')),
     url(r'^admin/', admin.site.urls),
+    url(r'^api/', include(router.urls)),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+xurlpatterns = [
+    url(r'^', include(router.urls)),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+]

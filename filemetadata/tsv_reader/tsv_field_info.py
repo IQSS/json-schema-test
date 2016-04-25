@@ -15,7 +15,6 @@ def dashes(): msg('-' * 40)
 def msgt(m): dashes(); msg(m); dashes()
 def msgx(m): msgt(m); sys.exit(0)
 
-
 class MetadataLine(object):
 
     def __init__(self, line):
@@ -106,9 +105,9 @@ allowmultiples
         """
 
         # basic params for a single field or subfield
-        prop_dict = dict(title=self.title,\
+        prop_dict = OrderedDict(title=self.title,\
                         description=self.description,\
-                        propertyOrder=self.displayOrder,\
+                        #propertyOrder=self.displayOrder,\
                         required=self.required,\
                         display_format=self.displayFormat\
                         )

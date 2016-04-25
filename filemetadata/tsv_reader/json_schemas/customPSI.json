@@ -3,6 +3,10 @@
     "type": "object", 
     "properties": {
         "psiBehavior": {
+            "display_format": null, 
+            "required": false, 
+            "description": "Behavior", 
+            "title": "Behavior", 
             "enum": [
                 "Abstinence", 
                 "Birth spacing", 
@@ -20,14 +24,13 @@
                 "Treatment adherence", 
                 "Water treatment"
             ], 
-            "description": "Behavior", 
-            "title": "Behavior", 
-            "required": false, 
-            "propertyOrder": "0", 
-            "display_format": null, 
             "type": "string"
         }, 
         "psiDonor": {
+            "display_format": null, 
+            "required": false, 
+            "description": "Donor", 
+            "title": "Donor", 
             "enum": [
                 "CDC", 
                 "DFID", 
@@ -41,14 +44,13 @@
                 "UNFPA", 
                 "USAID"
             ], 
-            "description": "Donor", 
-            "title": "Donor", 
-            "required": false, 
-            "propertyOrder": "1", 
-            "display_format": null, 
             "type": "string"
         }, 
         "psiHealthArea": {
+            "display_format": null, 
+            "required": false, 
+            "description": "Health Area", 
+            "title": "Health Area", 
             "enum": [
                 "Diarrhea", 
                 "GBV", 
@@ -61,14 +63,13 @@
                 "Reproductive health", 
                 "TB"
             ], 
-            "description": "Health Area", 
-            "title": "Health Area", 
-            "required": false, 
-            "propertyOrder": "2", 
-            "display_format": null, 
             "type": "string"
         }, 
         "psiIntervention": {
+            "display_format": null, 
+            "required": false, 
+            "description": "Intervention", 
+            "title": "Intervention", 
             "enum": [
                 "BCC", 
                 "IPC", 
@@ -77,14 +78,13 @@
                 "Provider training", 
                 "Social franchising"
             ], 
-            "description": "Intervention", 
-            "title": "Intervention", 
-            "required": false, 
-            "propertyOrder": "3", 
-            "display_format": null, 
             "type": "string"
         }, 
         "psiPopulation": {
+            "display_format": null, 
+            "required": false, 
+            "description": "Population", 
+            "title": "Population", 
             "enum": [
                 "Caregivers", 
                 "Couples", 
@@ -101,14 +101,13 @@
                 "WRA", 
                 "Youth"
             ], 
-            "description": "Population", 
-            "title": "Population", 
-            "required": false, 
-            "propertyOrder": "4", 
-            "display_format": null, 
             "type": "string"
         }, 
         "psiProductsServices": {
+            "display_format": null, 
+            "required": false, 
+            "description": "Products/Services", 
+            "title": "Products/Services", 
             "enum": [
                 "ACT", 
                 "ANC", 
@@ -133,14 +132,13 @@
                 "VMC", 
                 "Zinc"
             ], 
-            "description": "Products/Services", 
-            "title": "Products/Services", 
-            "required": false, 
-            "propertyOrder": "5", 
-            "display_format": null, 
             "type": "string"
         }, 
         "psiStudyDesignElement": {
+            "display_format": null, 
+            "required": false, 
+            "description": "Study Design Element", 
+            "title": "Study Design Element", 
             "enum": [
                 "CEM", 
                 "Client exit interview", 
@@ -154,14 +152,13 @@
                 "Pretesting", 
                 "TRaC"
             ], 
-            "description": "Study Design Element", 
-            "title": "Study Design Element", 
-            "required": false, 
-            "propertyOrder": "6", 
-            "display_format": null, 
             "type": "string"
         }, 
         "psiStudyType": {
+            "display_format": null, 
+            "required": false, 
+            "description": "Study Type", 
+            "title": "Study Type", 
             "enum": [
                 "MAP", 
                 "Mixed Methods", 
@@ -169,13 +166,7 @@
                 "Quantitative", 
                 "Retail audit"
             ], 
-            "description": "Study Type", 
-            "title": "Study Type", 
-            "required": false, 
-            "propertyOrder": "7", 
-            "display_format": null, 
             "type": "string"
         }
-    }, 
-    "required": []
+    }
 }

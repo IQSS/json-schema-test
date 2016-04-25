@@ -3,6 +3,10 @@
     "type": "object", 
     "properties": {
         "mraCollection": {
+            "display_format": null, 
+            "required": false, 
+            "description": "Browse the Murray Research Archive collection with the following terms.", 
+            "title": "Murray Research Archive Collection", 
             "enum": [
                 "Diversity samples: Race, Ethnicity, Sexual Orientation, Religion", 
                 "Early Head Start Research and Evaluation Project, 1996 - 2001", 
@@ -16,13 +20,7 @@
                 "Studies with Video Data", 
                 "Work"
             ], 
-            "description": "Browse the Murray Research Archive collection with the following terms.", 
-            "title": "Murray Research Archive Collection", 
-            "required": false, 
-            "propertyOrder": "0", 
-            "display_format": null, 
             "type": "string"
         }
-    }, 
-    "required": []
+    }
 }

@@ -1,0 +1,14 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object", "properties":  {
+        "first_name":  { "type": "string", "minLength": 2,"maxLength": 20 },
+        "last_name":  { "type": "string", "minLength": 2, "maxLength": 20 },
+        "rank":  {   "enum": [ "private", "corporal", "sergeant", "lieutenant", "captain", "major", "colonel", "general" ]   },
+        "serial_number": { "type":  "string", "pattern":  "^[0-9][A-Z][A-Z][0-9][0-9]-[A-Z][A-Z]-[0-9]$" },
+        "age": { "type":  "integer",  "minimum": 18, "maximum": 65 },
+        "date_of_birth":  { "type": "string",  "format": "date-time"},
+        "email_address" : {"type":"string", "format":"email"}
+    },
+    "required": [ "first_name",  "last_name", "rank", "serial_number", "email_address" ],
+    "additionalProperties": false
+}

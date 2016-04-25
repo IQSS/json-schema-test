@@ -3,6 +3,10 @@
     "type": "object", 
     "properties": {
         "studyDesignType": {
+            "display_format": null, 
+            "required": false, 
+            "description": "Design types that are based on the overall experimental design.", 
+            "title": "Design Type", 
             "enum": [
                 "Case Control", 
                 "Cross Sectional", 
@@ -14,14 +18,13 @@
                 "Randomized Controlled Trial", 
                 "Technological Design"
             ], 
-            "description": "Design types that are based on the overall experimental design.", 
-            "title": "Design Type", 
-            "required": false, 
-            "propertyOrder": "0", 
-            "display_format": null, 
             "type": "string"
         }, 
         "studyFactorType": {
+            "display_format": null, 
+            "required": false, 
+            "description": "Factors used in the Dataset.", 
+            "title": "Factor Type", 
             "enum": [
                 "Age", 
                 "Biomarkers", 
@@ -44,14 +47,13 @@
                 "Treatment Compound", 
                 "Treatment Type"
             ], 
-            "description": "Factors used in the Dataset.", 
-            "title": "Factor Type", 
-            "required": false, 
-            "propertyOrder": "1", 
-            "display_format": null, 
             "type": "string"
         }, 
         "studyAssayOrganism": {
+            "display_format": null, 
+            "required": false, 
+            "description": "The taxonomic name of the organism used in the Dataset or from which the  starting biological material derives.", 
+            "title": "Organism", 
             "enum": [
                 "Arabidopsis thaliana", 
                 "Bos taurus", 
@@ -79,22 +81,20 @@
                 "Zea mays", 
                 "Other"
             ], 
-            "description": "The taxonomic name of the organism used in the Dataset or from which the  starting biological material derives.", 
-            "title": "Organism", 
-            "required": false, 
-            "propertyOrder": "2", 
-            "display_format": null, 
             "type": "string"
         }, 
         "studyAssayOtherOrganism": {
-            "propertyOrder": "3", 
-            "description": "If Other was selected in Organism, list any other organisms that were used in this Dataset. Terms from the NCBI Taxonomy are recommended.", 
-            "title": "Other Organism", 
             "display_format": null, 
             "required": false, 
+            "description": "If Other was selected in Organism, list any other organisms that were used in this Dataset. Terms from the NCBI Taxonomy are recommended.", 
+            "title": "Other Organism", 
             "type": "string"
         }, 
         "studyAssayMeasurementType": {
+            "display_format": null, 
+            "required": false, 
+            "description": "A term to qualify the endpoint, or what is being measured (e.g. gene expression profiling; protein identification).", 
+            "title": "Measurement Type", 
             "enum": [
                 "cell counting", 
                 "cell sorting", 
@@ -128,22 +128,20 @@
                 "TRAP translational profiling", 
                 "Other"
             ], 
-            "description": "A term to qualify the endpoint, or what is being measured (e.g. gene expression profiling; protein identification).", 
-            "title": "Measurement Type", 
-            "required": false, 
-            "propertyOrder": "4", 
-            "display_format": null, 
             "type": "string"
         }, 
         "studyAssayOtherMeasurmentType": {
-            "propertyOrder": "5", 
-            "description": "If Other was selected in Measurement Type, list any other measurement types that were used. Terms from NCBO Bioportal are recommended.", 
-            "title": "Other Measurement Type", 
             "display_format": null, 
             "required": false, 
+            "description": "If Other was selected in Measurement Type, list any other measurement types that were used. Terms from NCBO Bioportal are recommended.", 
+            "title": "Other Measurement Type", 
             "type": "string"
         }, 
         "studyAssayTechnologyType": {
+            "display_format": null, 
+            "required": false, 
+            "description": "A term to identify the technology used to perform the measurement (e.g. DNA microarray; mass spectrometry).", 
+            "title": "Technology Type", 
             "enum": [
                 "culture based drug susceptibility testing, single concentration", 
                 "culture based drug susceptibility testing, two concentrations", 
@@ -159,14 +157,13 @@
                 "no technology required", 
                 "Other"
             ], 
-            "description": "A term to identify the technology used to perform the measurement (e.g. DNA microarray; mass spectrometry).", 
-            "title": "Technology Type", 
-            "required": false, 
-            "propertyOrder": "6", 
-            "display_format": null, 
             "type": "string"
         }, 
         "studyAssayPlatform": {
+            "display_format": null, 
+            "required": false, 
+            "description": "The manufacturer and name of the technology platform used in the assay (e.g. Bruker AVANCE).", 
+            "title": "Technology Platform", 
             "enum": [
                 "210-MS GC Ion Trap (Varian)", 
                 "220-MS GC Ion Trap (Varian)", 
@@ -353,21 +350,14 @@
                 "Xevo TQ-S (Waters)", 
                 "Other"
             ], 
-            "description": "The manufacturer and name of the technology platform used in the assay (e.g. Bruker AVANCE).", 
-            "title": "Technology Platform", 
-            "required": false, 
-            "propertyOrder": "7", 
-            "display_format": null, 
             "type": "string"
         }, 
         "studyAssayCellType": {
-            "propertyOrder": "8", 
-            "description": "The name of the cell line from which the source or sample derives.", 
-            "title": "Cell Type", 
             "display_format": null, 
             "required": false, 
+            "description": "The name of the cell line from which the source or sample derives.", 
+            "title": "Cell Type", 
             "type": "string"
         }
-    }, 
-    "required": []
+    }
 }

@@ -9,6 +9,10 @@
                 "type": "object", 
                 "properties": {
                     "country": {
+                        "display_format": null, 
+                        "required": false, 
+                        "description": "The country or nation that the Dataset is about.", 
+                        "title": "Country / Nation", 
                         "enum": [
                             "Afghanistan", 
                             "Albania", 
@@ -260,35 +264,27 @@
                             "Zimbabwe", 
                             "\u00c5land Islands"
                         ], 
-                        "description": "The country or nation that the Dataset is about.", 
-                        "title": "Country / Nation", 
-                        "required": false, 
-                        "propertyOrder": "1", 
-                        "display_format": null, 
                         "type": "string"
                     }, 
                     "state": {
-                        "propertyOrder": "2", 
-                        "description": "The state or province that the Dataset is about. Use GeoNames for correct spelling and avoid abbreviations.", 
-                        "title": "State / Province", 
                         "display_format": null, 
                         "required": false, 
+                        "description": "The state or province that the Dataset is about. Use GeoNames for correct spelling and avoid abbreviations.", 
+                        "title": "State / Province", 
                         "type": "string"
                     }, 
                     "city": {
-                        "propertyOrder": "3", 
-                        "description": "The name of the city that the Dataset is about. Use GeoNames for correct spelling and avoid abbreviations.", 
-                        "title": "City", 
                         "display_format": null, 
                         "required": false, 
+                        "description": "The name of the city that the Dataset is about. Use GeoNames for correct spelling and avoid abbreviations.", 
+                        "title": "City", 
                         "type": "string"
                     }, 
                     "otherGeographicCoverage": {
-                        "propertyOrder": "4", 
-                        "description": "Other information on the geographic coverage of the data.", 
-                        "title": "Other", 
                         "display_format": null, 
                         "required": false, 
+                        "description": "Other information on the geographic coverage of the data.", 
+                        "title": "Other", 
                         "type": "string"
                     }
                 }, 
@@ -299,11 +295,10 @@
             "type": "array"
         }, 
         "geographicUnit": {
-            "propertyOrder": "5", 
-            "description": "Lowest level of geographic aggregation covered by the Dataset, e.g., village, county, region.", 
-            "title": "Geographic Unit", 
             "display_format": null, 
             "required": false, 
+            "description": "Lowest level of geographic aggregation covered by the Dataset, e.g., village, county, region.", 
+            "title": "Geographic Unit", 
             "type": "string"
         }, 
         "geographicBoundingBox": {
@@ -313,35 +308,31 @@
                 "type": "object", 
                 "properties": {
                     "westLongitude": {
-                        "propertyOrder": "7", 
-                        "description": "Westernmost coordinate delimiting the geographic extent of the Dataset. A valid range of values,  expressed in decimal degrees, is -180,0 <= West  Bounding Longitude Value <= 180,0.", 
-                        "title": "West Longitude", 
                         "display_format": null, 
                         "required": false, 
+                        "description": "Westernmost coordinate delimiting the geographic extent of the Dataset. A valid range of values,  expressed in decimal degrees, is -180,0 <= West  Bounding Longitude Value <= 180,0.", 
+                        "title": "West Longitude", 
                         "type": "string"
                     }, 
                     "eastLongitude": {
-                        "propertyOrder": "8", 
-                        "description": "Easternmost coordinate delimiting the geographic extent of the Dataset. A valid range of values,  expressed in decimal degrees, is -180,0 <= East Bounding Longitude Value <= 180,0.", 
-                        "title": "East Longitude", 
                         "display_format": null, 
                         "required": false, 
+                        "description": "Easternmost coordinate delimiting the geographic extent of the Dataset. A valid range of values,  expressed in decimal degrees, is -180,0 <= East Bounding Longitude Value <= 180,0.", 
+                        "title": "East Longitude", 
                         "type": "string"
                     }, 
                     "northLongitude": {
-                        "propertyOrder": "9", 
-                        "description": "Northernmost coordinate delimiting the geographic extent of the Dataset. A valid range of values,  expressed in decimal degrees, is -90,0 <= North Bounding Latitude Value <= 90,0.", 
-                        "title": "North Latitude", 
                         "display_format": null, 
                         "required": false, 
+                        "description": "Northernmost coordinate delimiting the geographic extent of the Dataset. A valid range of values,  expressed in decimal degrees, is -90,0 <= North Bounding Latitude Value <= 90,0.", 
+                        "title": "North Latitude", 
                         "type": "string"
                     }, 
                     "southLongitude": {
-                        "propertyOrder": "10", 
-                        "description": "Southernmost coordinate delimiting the geographic extent of the Dataset. A valid range of values,  expressed in decimal degrees, is -90,0 <= South Bounding Latitude Value <= 90,0.", 
-                        "title": "South Latitude", 
                         "display_format": null, 
                         "required": false, 
+                        "description": "Southernmost coordinate delimiting the geographic extent of the Dataset. A valid range of values,  expressed in decimal degrees, is -90,0 <= South Bounding Latitude Value <= 90,0.", 
+                        "title": "South Latitude", 
                         "type": "string"
                     }
                 }, 
@@ -351,6 +342,5 @@
             "uniqueItems": true, 
             "type": "array"
         }
-    }, 
-    "required": []
+    }
 }

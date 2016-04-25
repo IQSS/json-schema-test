@@ -3,14 +3,17 @@
     "type": "object", 
     "properties": {
         "gsdStudentName": {
-            "propertyOrder": "0", 
-            "description": "Full name of the student: Last Name, First Name (example: Smith, Jane). Use the name that the GSD Administrator has on file.", 
-            "title": "Student Name", 
             "display_format": null, 
             "required": false, 
+            "description": "Full name of the student: Last Name, First Name (example: Smith, Jane). Use the name that the GSD Administrator has on file.", 
+            "title": "Student Name", 
             "type": "string"
         }, 
         "gsdStudentProgram": {
+            "display_format": null, 
+            "required": false, 
+            "description": "Student's program of study.", 
+            "title": "Student's Program of Study", 
             "enum": [
                 "DDes", 
                 "MArch I", 
@@ -29,14 +32,13 @@
                 "Other", 
                 "PhD"
             ], 
-            "description": "Student's program of study.", 
-            "title": "Student's Program of Study", 
-            "required": false, 
-            "propertyOrder": "1", 
-            "display_format": null, 
             "type": "string"
         }, 
         "gsdCourseName": {
+            "display_format": null, 
+            "required": false, 
+            "description": "Name of the course.", 
+            "title": "Course Name", 
             "enum": [
                 "01101: First Semester Core: PROJECT", 
                 "01102: Second Semester Core: SITUATE", 
@@ -253,14 +255,13 @@
                 "09691: Doctoral Program Proseminar", 
                 "Other"
             ], 
-            "description": "Name of the course.", 
-            "title": "Course Name", 
-            "required": false, 
-            "propertyOrder": "2", 
-            "display_format": null, 
             "type": "string"
         }, 
         "gsdFacultyName": {
+            "display_format": null, 
+            "required": false, 
+            "description": "Name of the studio instructor.", 
+            "title": "Faculty Name", 
             "enum": [
                 "Abalos, Inaki", 
                 "Adjaye, David", 
@@ -465,14 +466,13 @@
                 "Wu, Cameron", 
                 "Zickler, Todd"
             ], 
-            "description": "Name of the studio instructor.", 
-            "title": "Faculty Name", 
-            "required": false, 
-            "propertyOrder": "3", 
-            "display_format": null, 
             "type": "string"
         }, 
         "gsdCoordinator": {
+            "display_format": null, 
+            "required": false, 
+            "description": "Name of the studio coordinator(s).", 
+            "title": "Core Studio Coordinator", 
             "enum": [
                 "Abalos, Inaki", 
                 "Belanger, Pierre", 
@@ -494,14 +494,13 @@
                 "Wu, Cameron", 
                 "Other"
             ], 
-            "description": "Name of the studio coordinator(s).", 
-            "title": "Core Studio Coordinator", 
-            "required": false, 
-            "propertyOrder": "4", 
-            "display_format": null, 
             "type": "string"
         }, 
         "gsdSemester": {
+            "display_format": null, 
+            "required": false, 
+            "description": "Select the semester / year.", 
+            "title": "Semester / Year", 
             "enum": [
                 "Fall 2013", 
                 "Spring 2014", 
@@ -511,57 +510,52 @@
                 "Spring 2016", 
                 "Fall 2016"
             ], 
-            "description": "Select the semester / year.", 
-            "title": "Semester / Year", 
-            "required": false, 
-            "propertyOrder": "5", 
-            "display_format": null, 
             "type": "string"
         }, 
         "gsdRecommendation": {
+            "display_format": null, 
+            "required": false, 
+            "description": "Indicate the recommendation(s) from the faculty for this project.", 
+            "title": "Faculty Recommendation", 
             "enum": [
                 "Accreditation", 
                 "Open House", 
                 "Platform", 
                 "Website"
             ], 
-            "description": "Indicate the recommendation(s) from the faculty for this project.", 
-            "title": "Faculty Recommendation", 
-            "required": false, 
-            "propertyOrder": "6", 
-            "display_format": null, 
             "type": "string"
         }, 
         "gsdAccreditation": {
+            "display_format": null, 
+            "required": false, 
+            "description": "Selection made by faculty.", 
+            "title": "Accreditation", 
             "enum": [
                 "High", 
                 "Medium", 
                 "Low"
             ], 
-            "description": "Selection made by faculty.", 
-            "title": "Accreditation", 
-            "required": false, 
-            "propertyOrder": "7", 
-            "display_format": null, 
             "type": "string"
         }, 
         "gsdSiteType": {
-            "propertyOrder": "8", 
-            "description": "Describe the type of building or site, based on function / purpose. Example: Military base.", 
-            "title": "Site Type", 
             "display_format": null, 
             "required": false, 
+            "description": "Describe the type of building or site, based on function / purpose. Example: Military base.", 
+            "title": "Site Type", 
             "type": "string"
         }, 
         "gsdProgramBrief": {
-            "propertyOrder": "9", 
-            "description": "Example: redevelopment, restoration.", 
-            "title": "Program / Brief", 
             "display_format": null, 
             "required": false, 
+            "description": "Example: redevelopment, restoration.", 
+            "title": "Program / Brief", 
             "type": "string"
         }, 
         "gsdTypes": {
+            "display_format": null, 
+            "required": false, 
+            "description": "Choose from the list.", 
+            "title": "Types of Representation/ Medium/ Format", 
             "enum": [
                 "Animations", 
                 "Axonometric drawings", 
@@ -589,14 +583,13 @@
                 "Sketches", 
                 "Videos"
             ], 
-            "description": "Choose from the list.", 
-            "title": "Types of Representation/ Medium/ Format", 
-            "required": false, 
-            "propertyOrder": "10", 
-            "display_format": null, 
             "type": "string"
         }, 
         "gsdPrizes": {
+            "display_format": null, 
+            "required": false, 
+            "description": "Choose from the list.", 
+            "title": "Prizes", 
             "enum": [
                 "Araldo Cossutta Annual Prize for Design Excellence", 
                 "Award for Academic Excellence in Urban Design", 
@@ -620,21 +613,14 @@
                 "Sinclair Kennedy Traveling Fellowship", 
                 "The Daniel L. Schodek Award for Technology and Sustainability"
             ], 
-            "description": "Choose from the list.", 
-            "title": "Prizes", 
-            "required": false, 
-            "propertyOrder": "11", 
-            "display_format": null, 
             "type": "string"
         }, 
         "gsdTags": {
-            "propertyOrder": "12", 
-            "description": "Use tags to describe the project. Write one keyword per field. To add more tags, click on the plus sign on the right.", 
-            "title": "GSD Tags", 
             "display_format": null, 
             "required": false, 
+            "description": "Use tags to describe the project. Write one keyword per field. To add more tags, click on the plus sign on the right.", 
+            "title": "GSD Tags", 
             "type": "string"
         }
-    }, 
-    "required": []
+    }
 }
