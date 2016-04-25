@@ -1,6 +1,6 @@
 from __future__ import unicode_literals
 
-import collections
+from collections import OrderedDict
 import json
 
 from django.db import models
@@ -15,22 +15,37 @@ class MetadataSchema(TimeStampedModel):
     published = models.BooleanField(default=False)
     slug = models.SlugField(max_length=120, blank=True)
     version = models.DecimalField(default=1.0, decimal_places=2, max_digits=5)
-    schema = JSONField(load_kwargs={'object_pairs_hook': collections.OrderedDict})
+    schema = JSONField(load_kwargs={'object_pairs_hook': OrderedDict})
     description = models.TextField(blank=True)
 
     def __str__(self):
         return '%s' % (self.title)
 
-    def as_json(self, with_indent=False):
-        if with_indent:
-            return json.dumps(self.schema, indent=4)
-        else:
-            return json.dumps(self.schema)
+    def as_json(self, indent=None):
 
-        #   object_pairs_hook=collections.OrderedDict)
+        if indent is not None:
+            indent=4
+        return json.dumps(self.schema, indent=indent)
+
+
+    def add_version_to_schema(self):
+
+
+        self_dict = { 'self' : dict(version=self.version,\
+                                modified=str(self.modified),\
+                                description=self.description)}
+        updated_schema = OrderedDict(self_dict)
+        for k, v in self.schema.items():
+            updated_schema[k] = v
+        self.schema = updated_schema
+
+    def as_dict(self):
+        return self.schema
+
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
+        self.add_version_to_schema()
         super(MetadataSchema, self).save(*args, **kwargs)
 
     class Meta:

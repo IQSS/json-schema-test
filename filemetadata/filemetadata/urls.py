@@ -42,7 +42,8 @@ router.register(r'metadata_schemas', MetadataSchemaViewSet)
 urlpatterns = [
     url(r'^', include('tsv_reader.urls')),
     url(r'^admin/', admin.site.urls),
-    url(r'^api/', include(router.urls)),
+    #url(r'^api/', include(router.urls)),
+    url(r'^api/metadata/', include('metadata_organizer.urls')),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
