@@ -3,24 +3,26 @@
     "type": "object", 
     "properties": {
         "mraCollection": {
+            "uniqueItems": true, 
+            "items": {
+                "title": "Murray Research Archive Collection", 
+                "enum": [
+                    "Politics and Government", 
+                    "Early Head Start Research and Evaluation Project, 1996 - 2001", 
+                    "Diversity samples: Race, Ethnicity, Sexual Orientation, Religion", 
+                    "Work", 
+                    "Studies with Video Data", 
+                    "Health", 
+                    "Economic Theory and Demography", 
+                    "Studies with Audio Data", 
+                    "Education", 
+                    "Family. Marriage. Women", 
+                    "Replications, Extensions and Followups"
+                ]
+            }, 
             "display_format": null, 
-            "required": false, 
-            "description": "Browse the Murray Research Archive collection with the following terms.", 
-            "title": "Murray Research Archive Collection", 
-            "enum": [
-                "Diversity samples: Race, Ethnicity, Sexual Orientation, Religion", 
-                "Early Head Start Research and Evaluation Project, 1996 - 2001", 
-                "Economic Theory and Demography", 
-                "Education", 
-                "Family. Marriage. Women", 
-                "Health", 
-                "Politics and Government", 
-                "Replications, Extensions and Followups", 
-                "Studies with Audio Data", 
-                "Studies with Video Data", 
-                "Work"
-            ], 
-            "type": "string"
+            "type": "array", 
+            "description": "Browse the Murray Research Archive collection with the following terms."
         }
     }
 }

@@ -3,170 +3,186 @@
     "type": "object", 
     "properties": {
         "psiBehavior": {
+            "uniqueItems": true, 
+            "items": {
+                "title": "Behavior", 
+                "enum": [
+                    "Male circumcision", 
+                    "HIV risk behaviors", 
+                    "LLIN use", 
+                    "Treatment adherence", 
+                    "HIV/STI testing", 
+                    "Cervical cancer screening", 
+                    "Abstinence", 
+                    "Modern contraceptive use", 
+                    "Referral uptake", 
+                    "Birth spacing", 
+                    "Water treatment", 
+                    "Partner reduction", 
+                    "FGM", 
+                    "ORS use", 
+                    "Condom use"
+                ]
+            }, 
             "display_format": null, 
-            "required": false, 
-            "description": "Behavior", 
-            "title": "Behavior", 
-            "enum": [
-                "Abstinence", 
-                "Birth spacing", 
-                "Cervical cancer screening", 
-                "Condom use", 
-                "FGM", 
-                "HIV risk behaviors", 
-                "HIV/STI testing", 
-                "LLIN use", 
-                "Male circumcision", 
-                "Modern contraceptive use", 
-                "ORS use", 
-                "Partner reduction", 
-                "Referral uptake", 
-                "Treatment adherence", 
-                "Water treatment"
-            ], 
-            "type": "string"
+            "type": "array", 
+            "description": "Behavior"
         }, 
         "psiDonor": {
+            "uniqueItems": true, 
+            "items": {
+                "title": "Donor", 
+                "enum": [
+                    "KfW", 
+                    "DFID", 
+                    "Gates Foundation", 
+                    "LAD", 
+                    "UNFPA", 
+                    "CDC", 
+                    "Global Fund", 
+                    "USAID", 
+                    "Other", 
+                    "PEPFAR", 
+                    "Dutch"
+                ]
+            }, 
             "display_format": null, 
-            "required": false, 
-            "description": "Donor", 
-            "title": "Donor", 
-            "enum": [
-                "CDC", 
-                "DFID", 
-                "Dutch", 
-                "Gates Foundation", 
-                "Global Fund", 
-                "KfW", 
-                "LAD", 
-                "Other", 
-                "PEPFAR", 
-                "UNFPA", 
-                "USAID"
-            ], 
-            "type": "string"
+            "type": "array", 
+            "description": "Donor"
         }, 
         "psiHealthArea": {
+            "uniqueItems": true, 
+            "items": {
+                "title": "Health Area", 
+                "enum": [
+                    "Nutrition", 
+                    "HIV", 
+                    "ICM", 
+                    "NCDs", 
+                    "Diarrhea", 
+                    "Malaria", 
+                    "GBV", 
+                    "Pneumonia", 
+                    "Reproductive health", 
+                    "TB"
+                ]
+            }, 
             "display_format": null, 
-            "required": false, 
-            "description": "Health Area", 
-            "title": "Health Area", 
-            "enum": [
-                "Diarrhea", 
-                "GBV", 
-                "HIV", 
-                "ICM", 
-                "Malaria", 
-                "NCDs", 
-                "Nutrition", 
-                "Pneumonia", 
-                "Reproductive health", 
-                "TB"
-            ], 
-            "type": "string"
+            "type": "array", 
+            "description": "Health Area"
         }, 
         "psiIntervention": {
+            "uniqueItems": true, 
+            "items": {
+                "title": "Intervention", 
+                "enum": [
+                    "IPC", 
+                    "Provider training", 
+                    "mHealth", 
+                    "Medical detailing", 
+                    "BCC", 
+                    "Social franchising"
+                ]
+            }, 
             "display_format": null, 
-            "required": false, 
-            "description": "Intervention", 
-            "title": "Intervention", 
-            "enum": [
-                "BCC", 
-                "IPC", 
-                "Medical detailing", 
-                "mHealth", 
-                "Provider training", 
-                "Social franchising"
-            ], 
-            "type": "string"
+            "type": "array", 
+            "description": "Intervention"
         }, 
         "psiPopulation": {
+            "uniqueItems": true, 
+            "items": {
+                "title": "Population", 
+                "enum": [
+                    "Youth", 
+                    "PLHIV", 
+                    "Truck drivers", 
+                    "MARPs", 
+                    "Providers", 
+                    "Men", 
+                    "General population", 
+                    "Couples", 
+                    "MSM", 
+                    "FSW", 
+                    "Caregivers", 
+                    "WRA", 
+                    "IDUs", 
+                    "Women"
+                ]
+            }, 
             "display_format": null, 
-            "required": false, 
-            "description": "Population", 
-            "title": "Population", 
-            "enum": [
-                "Caregivers", 
-                "Couples", 
-                "FSW", 
-                "General population", 
-                "IDUs", 
-                "MARPs", 
-                "Men", 
-                "MSM", 
-                "PLHIV", 
-                "Providers", 
-                "Truck drivers", 
-                "Women", 
-                "WRA", 
-                "Youth"
-            ], 
-            "type": "string"
+            "type": "array", 
+            "description": "Population"
         }, 
         "psiProductsServices": {
+            "uniqueItems": true, 
+            "items": {
+                "title": "Products/Services", 
+                "enum": [
+                    "Needle and syringe", 
+                    "Clean delivery kit", 
+                    "ORS", 
+                    "ACT", 
+                    "LLIN", 
+                    "Household water treatment", 
+                    "TB DOTS", 
+                    "Antibiotics", 
+                    "Medicated Abortion", 
+                    "Long-term Methods", 
+                    "Condoms", 
+                    "Short-term methods", 
+                    "STI kit", 
+                    "Misoprostol", 
+                    "Multivitamin", 
+                    "ART", 
+                    "HTC", 
+                    "ANC", 
+                    "VMC", 
+                    "PMTCT", 
+                    "Nevirapine", 
+                    "Zinc"
+                ]
+            }, 
             "display_format": null, 
-            "required": false, 
-            "description": "Products/Services", 
-            "title": "Products/Services", 
-            "enum": [
-                "ACT", 
-                "ANC", 
-                "Antibiotics", 
-                "ART", 
-                "Clean delivery kit", 
-                "Condoms", 
-                "Household water treatment", 
-                "HTC", 
-                "LLIN", 
-                "Long-term Methods", 
-                "Medicated Abortion", 
-                "Misoprostol", 
-                "Multivitamin", 
-                "Needle and syringe", 
-                "Nevirapine", 
-                "ORS", 
-                "PMTCT", 
-                "Short-term methods", 
-                "STI kit", 
-                "TB DOTS", 
-                "VMC", 
-                "Zinc"
-            ], 
-            "type": "string"
+            "type": "array", 
+            "description": "Products/Services"
         }, 
         "psiStudyDesignElement": {
+            "uniqueItems": true, 
+            "items": {
+                "title": "Study Design Element", 
+                "enum": [
+                    "Longitudinal", 
+                    "TRaC", 
+                    "In-depth interview", 
+                    "CEM", 
+                    "Client exit interview", 
+                    "Cross-sectional", 
+                    "Mystery client", 
+                    "LQAS", 
+                    "Focus group", 
+                    "Pretesting", 
+                    "Control group"
+                ]
+            }, 
             "display_format": null, 
-            "required": false, 
-            "description": "Study Design Element", 
-            "title": "Study Design Element", 
-            "enum": [
-                "CEM", 
-                "Client exit interview", 
-                "Control group", 
-                "Cross-sectional", 
-                "Focus group", 
-                "In-depth interview", 
-                "Longitudinal", 
-                "LQAS", 
-                "Mystery client", 
-                "Pretesting", 
-                "TRaC"
-            ], 
-            "type": "string"
+            "type": "array", 
+            "description": "Study Design Element"
         }, 
         "psiStudyType": {
+            "uniqueItems": true, 
+            "items": {
+                "title": "Study Type", 
+                "enum": [
+                    "MAP", 
+                    "Qualitative", 
+                    "Retail audit", 
+                    "Mixed Methods", 
+                    "Quantitative"
+                ]
+            }, 
             "display_format": null, 
-            "required": false, 
-            "description": "Study Type", 
-            "title": "Study Type", 
-            "enum": [
-                "MAP", 
-                "Mixed Methods", 
-                "Qualitative", 
-                "Quantitative", 
-                "Retail audit"
-            ], 
-            "type": "string"
+            "type": "array", 
+            "description": "Study Type"
         }
     }
 }

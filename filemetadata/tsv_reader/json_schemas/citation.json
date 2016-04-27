@@ -4,21 +4,18 @@
     "properties": {
         "title": {
             "display_format": null, 
-            "required": true, 
             "description": "Full title by which the Dataset is known.", 
             "title": "Title", 
             "type": "string"
         }, 
         "subtitle": {
             "display_format": null, 
-            "required": false, 
             "description": "A secondary title used to amplify or state certain limitations on the main title.", 
             "title": "Subtitle", 
             "type": "string"
         }, 
         "alternativeTitle": {
             "display_format": null, 
-            "required": false, 
             "description": "A title by which the work is commonly referred, or an abbreviation of the title.", 
             "title": "Alternative Title", 
             "type": "string"
@@ -31,14 +28,12 @@
                 "properties": {
                     "otherIdAgency": {
                         "display_format": "#VALUE", 
-                        "required": false, 
                         "description": "Name of agency which generated this identifier.", 
                         "title": "Agency", 
                         "type": "string"
                     }, 
                     "otherIdValue": {
                         "display_format": "#VALUE", 
-                        "required": false, 
                         "description": "Other identifier that corresponds to this Dataset.", 
                         "title": "Identifier", 
                         "type": "string"
@@ -58,33 +53,29 @@
                 "properties": {
                     "authorName": {
                         "display_format": "#VALUE", 
-                        "required": true, 
                         "description": "The author's Family Name, Given Name or the name of the organization responsible for this Dataset.", 
                         "title": "Name", 
                         "type": "string"
                     }, 
                     "authorAffiliation": {
                         "display_format": "(#VALUE)", 
-                        "required": false, 
                         "description": "The organization with which the author is affiliated.", 
                         "title": "Affiliation", 
                         "type": "string"
                     }, 
                     "authorIdentifierScheme": {
                         "display_format": "- #VALUE:", 
-                        "required": false, 
                         "description": "Name of the identifier scheme (ORCID, ISNI).", 
                         "title": "Identifier Scheme", 
                         "enum": [
                             "ORCID", 
-                            "ISNI", 
-                            "LCNA"
+                            "LCNA", 
+                            "ISNI"
                         ], 
                         "type": "string"
                     }, 
                     "authorIdentifier": {
                         "display_format": "#VALUE", 
-                        "required": false, 
                         "description": "Uniquely identifies an individual author or organization, according to various schemes.", 
                         "title": "Identifier", 
                         "type": "string"
@@ -104,21 +95,18 @@
                 "properties": {
                     "datasetContactName": {
                         "display_format": "#VALUE", 
-                        "required": false, 
                         "description": "The contact's Family Name, Given Name or the name of the organization.", 
                         "title": "Name", 
                         "type": "string"
                     }, 
                     "datasetContactAffiliation": {
                         "display_format": "(#VALUE)", 
-                        "required": false, 
                         "description": "The organization with which the contact is affiliated.", 
                         "title": "Affiliation", 
                         "type": "string"
                     }, 
                     "datasetContactEmail": {
                         "display_format": "#EMAIL", 
-                        "required": true, 
                         "description": "The e-mail address(es) of the contact(s) for the Dataset. This will not be displayed.", 
                         "title": "E-mail", 
                         "type": "string"
@@ -138,14 +126,12 @@
                 "properties": {
                     "dsDescriptionValue": {
                         "display_format": "#VALUE", 
-                        "required": true, 
                         "description": "A summary describing the purpose, nature, and scope of the Dataset.", 
                         "title": "Text", 
                         "type": "string"
                     }, 
                     "dsDescriptionDate": {
                         "display_format": "(#VALUE)", 
-                        "required": false, 
                         "description": "In cases where a Dataset contains more than one description (for example, one might be supplied by the data producer and another prepared by the data repository where the data are deposited), the date attribute is used to distinguish between the two descriptions. The date attribute follows the ISO convention of YYYY-MM-DD.", 
                         "title": "Date", 
                         "type": "string"
@@ -158,27 +144,30 @@
             "type": "array"
         }, 
         "subject": {
+            "uniqueItems": true, 
+            "items": {
+                "title": "Subject", 
+                "enum": [
+                    "Earth and Environmental Sciences", 
+                    "Mathematical Sciences", 
+                    "Agricultural Sciences", 
+                    "Business and Management", 
+                    "Astronomy and Astrophysics", 
+                    "Law", 
+                    "Physics", 
+                    "Engineering", 
+                    "Other", 
+                    "Medicine, Health and Life Sciences", 
+                    "Arts and Humanities", 
+                    "Chemistry", 
+                    "Computer and Information Science", 
+                    "Social Sciences"
+                ]
+            }, 
             "display_format": null, 
-            "required": true, 
+            "type": "array", 
             "description": "Domain-specific Subject Categories that are topically relevant to the Dataset.", 
-            "title": "Subject", 
-            "enum": [
-                "Agricultural Sciences", 
-                "Arts and Humanities", 
-                "Astronomy and Astrophysics", 
-                "Business and Management", 
-                "Chemistry", 
-                "Earth and Environmental Sciences", 
-                "Engineering", 
-                "Medicine, Health and Life Sciences", 
-                "Computer and Information Science", 
-                "Law", 
-                "Mathematical Sciences", 
-                "Physics", 
-                "Social Sciences", 
-                "Other"
-            ], 
-            "type": "string"
+            "minItems": 1
         }, 
         "keyword": {
             "description": "Key terms that describe important aspects of the Dataset.", 
@@ -188,21 +177,18 @@
                 "properties": {
                     "keywordValue": {
                         "display_format": "#VALUE", 
-                        "required": false, 
                         "description": "Key terms that describe important aspects of the Dataset. Can be used for building keyword indexes and for classification and retrieval purposes. A controlled vocabulary can be employed. The vocab attribute is provided for specification of the controlled vocabulary in use, such as LCSH, MeSH, or others. The vocabURI attribute specifies the location for the full controlled vocabulary.", 
                         "title": "Term", 
                         "type": "string"
                     }, 
                     "keywordVocabulary": {
                         "display_format": "(#VALUE)", 
-                        "required": false, 
                         "description": "For the specification of the keyword controlled vocabulary in use, such as LCSH, MeSH, or others.", 
                         "title": "Vocabulary", 
                         "type": "string"
                     }, 
                     "keywordVocabularyURI": {
                         "display_format": "<a href='#VALUE'>#VALUE</a>", 
-                        "required": false, 
                         "description": "Keyword vocabulary URL points to the web presence that describes the keyword vocabulary, if appropriate. Enter an absolute URL where the keyword vocabulary web site is found, such as http://www.my.org.", 
                         "title": "Vocabulary URL", 
                         "pattern": "some pattern", 
@@ -223,21 +209,18 @@
                 "properties": {
                     "topicClassValue": {
                         "display_format": "#VALUE", 
-                        "required": false, 
                         "description": "Topic or Subject term that is relevant to this Dataset.", 
                         "title": "Term", 
                         "type": "string"
                     }, 
                     "topicClassVocab": {
                         "display_format": "(#VALUE)", 
-                        "required": false, 
                         "description": "Provided for specification of the controlled vocabulary in use, e.g., LCSH, MeSH, etc.", 
                         "title": "Vocabulary", 
                         "type": "string"
                     }, 
                     "topicClassVocabURI": {
                         "display_format": "<a href='#VALUE'>#VALUE</a>", 
-                        "required": false, 
                         "description": "Specifies the URL location for the full controlled vocabulary.", 
                         "title": "Vocabulary URL", 
                         "pattern": "some pattern", 
@@ -258,47 +241,43 @@
                 "properties": {
                     "publicationCitation": {
                         "display_format": "#VALUE", 
-                        "required": false, 
                         "description": "The full bibliographic citation for this related publication.", 
                         "title": "Citation", 
                         "type": "string"
                     }, 
                     "publicationIDType": {
                         "display_format": "#VALUE:", 
-                        "required": false, 
                         "description": "The type of digital identifier used for this publication (e.g., Digital Object Identifier (DOI)).", 
                         "title": "ID Type", 
                         "enum": [
-                            "ark", 
-                            "arXiv", 
-                            "bibcode", 
-                            "doi", 
                             "ean13", 
-                            "eissn", 
-                            "handle", 
-                            "isbn", 
                             "issn", 
-                            "istc", 
+                            "ark", 
+                            "handle", 
                             "lissn", 
                             "lsid", 
-                            "pmid", 
-                            "purl", 
+                            "urn", 
+                            "arXiv", 
                             "upc", 
                             "url", 
-                            "urn"
+                            "bibcode", 
+                            "purl", 
+                            "isbn", 
+                            "pmid", 
+                            "eissn", 
+                            "istc", 
+                            "doi"
                         ], 
                         "type": "string"
                     }, 
                     "publicationIDNumber": {
                         "display_format": "#VALUE", 
-                        "required": false, 
                         "description": "The identifier for the selected ID type.", 
                         "title": "ID Number", 
                         "type": "string"
                     }, 
                     "publicationURL": {
                         "display_format": "<a href='#VALUE'>#VALUE</a>", 
-                        "required": false, 
                         "description": "Link to the publication web page (e.g., journal article page, archive record page, or other).", 
                         "title": "URL", 
                         "pattern": "some pattern", 
@@ -313,204 +292,205 @@
         }, 
         "notesText": {
             "display_format": null, 
-            "required": false, 
             "description": "Additional important information about the Dataset.", 
             "title": "Notes", 
             "type": "string"
         }, 
         "language": {
+            "uniqueItems": true, 
+            "items": {
+                "title": "Language", 
+                "enum": [
+                    "Haitian, Haitian Creole", 
+                    "Telugu", 
+                    "Hebrew (modern)", 
+                    "Ojibwe, Ojibwa", 
+                    "Sinhala, Sinhalese", 
+                    "Kyrgyz", 
+                    "Kwanyama, Kuanyama", 
+                    "Ukrainian", 
+                    "Estonian", 
+                    "Cornish", 
+                    "Bulgarian", 
+                    "Swedish", 
+                    "Tigrinya", 
+                    "Yoruba", 
+                    "Bambara", 
+                    "French", 
+                    "Abkhaz", 
+                    "Fijian", 
+                    "Armenian", 
+                    "Tsonga", 
+                    "Fula, Fulah, Pulaar, Pular", 
+                    "Tamil", 
+                    "Twi", 
+                    "Kanuri", 
+                    "Samoan", 
+                    "Greek (modern)", 
+                    "Nepali", 
+                    "Finnish", 
+                    "Manx", 
+                    "Sundanese", 
+                    "Albanian", 
+                    "Old Church Slavonic,Church Slavonic,Old Bulgarian", 
+                    "Tagalog", 
+                    "Serbian", 
+                    "Malayalam", 
+                    "Navajo, Navaho", 
+                    "Thai", 
+                    "Italian", 
+                    "Walloon", 
+                    "Chamorro", 
+                    "Bislama", 
+                    "Kongo", 
+                    "Southern Ndebele", 
+                    "Galician", 
+                    "Czech", 
+                    "Slovak", 
+                    "Yiddish", 
+                    "Tonga (Tonga Islands)", 
+                    "Polish", 
+                    "Occitan", 
+                    "Xhosa", 
+                    "Marshallese", 
+                    "Panjabi, Punjabi", 
+                    "Spanish, Castilian", 
+                    "Uyghur, Uighur", 
+                    "Ewe", 
+                    "Kalaallisut, Greenlandic", 
+                    "Azerbaijani", 
+                    "Faroese", 
+                    "Nauru", 
+                    "Cree", 
+                    "Danish", 
+                    "Indonesian", 
+                    "Avestan", 
+                    "Guaran\u00ed", 
+                    "Zulu", 
+                    "Norwegian Nynorsk", 
+                    "Georgian", 
+                    "Norwegian", 
+                    "Ganda", 
+                    "Komi", 
+                    "Tajik", 
+                    "Aragonese", 
+                    "Afrikaans", 
+                    "Not applicable", 
+                    "Turkmen", 
+                    "Slovene", 
+                    "Avaric", 
+                    "Uzbek", 
+                    "Herero", 
+                    "Urdu", 
+                    "Burmese", 
+                    "Latvian", 
+                    "English", 
+                    "Croatian", 
+                    "Chinese", 
+                    "Inuktitut", 
+                    "Tatar", 
+                    "Chichewa, Chewa, Nyanja", 
+                    "Igbo", 
+                    "Arabic", 
+                    "Venda", 
+                    "Zhuang, Chuang", 
+                    "Breton", 
+                    "Swahili", 
+                    "Marathi (Mar\u0101\u1e6dh\u012b)", 
+                    "Icelandic", 
+                    "Turkish", 
+                    "Ossetian, Ossetic", 
+                    "Oriya", 
+                    "Inupiaq", 
+                    "Gujarati", 
+                    "Hindi", 
+                    "Sindhi", 
+                    "Korean", 
+                    "Malagasy", 
+                    "Khmer", 
+                    "Chuvash", 
+                    "Somali", 
+                    "Hungarian", 
+                    "Luxembourgish, Letzeburgesch", 
+                    "Wolof", 
+                    "Bosnian", 
+                    "Lithuanian", 
+                    "Malay", 
+                    "Russian", 
+                    "Pashto, Pushto", 
+                    "Lingala", 
+                    "Kazakh", 
+                    "Shona", 
+                    "Kirundi", 
+                    "Kashmiri", 
+                    "Hiri Motu", 
+                    "Amharic", 
+                    "Scottish Gaelic, Gaelic", 
+                    "Romansh", 
+                    "Limburgish, Limburgan, Limburger", 
+                    "Javanese", 
+                    "Afar", 
+                    "Tibetan Standard, Tibetan, Central", 
+                    "Hausa", 
+                    "Irish", 
+                    "Southern Sotho", 
+                    "German", 
+                    "Sanskrit (Sa\u1e41sk\u1e5bta)", 
+                    "Belarusian", 
+                    "Kannada", 
+                    "Macedonian", 
+                    "Bengali, Bangla", 
+                    "Mongolian", 
+                    "Dzongkha", 
+                    "Basque", 
+                    "Aymara", 
+                    "Kikuyu, Gikuyu", 
+                    "Ndonga", 
+                    "Vietnamese", 
+                    "Romanian", 
+                    "M\u0101ori", 
+                    "Northern Ndebele", 
+                    "Sardinian", 
+                    "Western Frisian", 
+                    "Corsican", 
+                    "Swati", 
+                    "Chechen", 
+                    "Dutch", 
+                    "Northern Sami", 
+                    "Catalan,Valencian", 
+                    "Akan", 
+                    "Lao", 
+                    "Bihari", 
+                    "Welsh", 
+                    "Persian (Farsi)", 
+                    "Norwegian Bokm\u00e5l", 
+                    "Tahitian", 
+                    "Nuosu", 
+                    "Maltese", 
+                    "Assamese", 
+                    "Kurdish", 
+                    "Bashkir", 
+                    "Luba-Katanga", 
+                    "Tswana", 
+                    "Ido", 
+                    "Volap\u00fck", 
+                    "Latin", 
+                    "Sango", 
+                    "Oromo", 
+                    "P\u0101li", 
+                    "Portuguese", 
+                    "Interlingua", 
+                    "Japanese", 
+                    "Kinyarwanda", 
+                    "Interlingue", 
+                    "Divehi, Dhivehi, Maldivian", 
+                    "Quechua", 
+                    "Esperanto"
+                ]
+            }, 
             "display_format": null, 
-            "required": false, 
-            "description": "Language of the Dataset", 
-            "title": "Language", 
-            "enum": [
-                "Abkhaz", 
-                "Afar", 
-                "Afrikaans", 
-                "Akan", 
-                "Albanian", 
-                "Amharic", 
-                "Arabic", 
-                "Aragonese", 
-                "Armenian", 
-                "Assamese", 
-                "Avaric", 
-                "Avestan", 
-                "Aymara", 
-                "Azerbaijani", 
-                "Bambara", 
-                "Bashkir", 
-                "Basque", 
-                "Belarusian", 
-                "Bengali, Bangla", 
-                "Bihari", 
-                "Bislama", 
-                "Bosnian", 
-                "Breton", 
-                "Bulgarian", 
-                "Burmese", 
-                "Catalan,Valencian", 
-                "Chamorro", 
-                "Chechen", 
-                "Chichewa, Chewa, Nyanja", 
-                "Chinese", 
-                "Chuvash", 
-                "Cornish", 
-                "Corsican", 
-                "Cree", 
-                "Croatian", 
-                "Czech", 
-                "Danish", 
-                "Divehi, Dhivehi, Maldivian", 
-                "Dutch", 
-                "Dzongkha", 
-                "English", 
-                "Esperanto", 
-                "Estonian", 
-                "Ewe", 
-                "Faroese", 
-                "Fijian", 
-                "Finnish", 
-                "French", 
-                "Fula, Fulah, Pulaar, Pular", 
-                "Galician", 
-                "Georgian", 
-                "German", 
-                "Greek (modern)", 
-                "Guaran\u00ed", 
-                "Gujarati", 
-                "Haitian, Haitian Creole", 
-                "Hausa", 
-                "Hebrew (modern)", 
-                "Herero", 
-                "Hindi", 
-                "Hiri Motu", 
-                "Hungarian", 
-                "Interlingua", 
-                "Indonesian", 
-                "Interlingue", 
-                "Irish", 
-                "Igbo", 
-                "Inupiaq", 
-                "Ido", 
-                "Icelandic", 
-                "Italian", 
-                "Inuktitut", 
-                "Japanese", 
-                "Javanese", 
-                "Kalaallisut, Greenlandic", 
-                "Kannada", 
-                "Kanuri", 
-                "Kashmiri", 
-                "Kazakh", 
-                "Khmer", 
-                "Kikuyu, Gikuyu", 
-                "Kinyarwanda", 
-                "Kyrgyz", 
-                "Komi", 
-                "Kongo", 
-                "Korean", 
-                "Kurdish", 
-                "Kwanyama, Kuanyama", 
-                "Latin", 
-                "Luxembourgish, Letzeburgesch", 
-                "Ganda", 
-                "Limburgish, Limburgan, Limburger", 
-                "Lingala", 
-                "Lao", 
-                "Lithuanian", 
-                "Luba-Katanga", 
-                "Latvian", 
-                "Manx", 
-                "Macedonian", 
-                "Malagasy", 
-                "Malay", 
-                "Malayalam", 
-                "Maltese", 
-                "M\u0101ori", 
-                "Marathi (Mar\u0101\u1e6dh\u012b)", 
-                "Marshallese", 
-                "Mongolian", 
-                "Nauru", 
-                "Navajo, Navaho", 
-                "Northern Ndebele", 
-                "Nepali", 
-                "Ndonga", 
-                "Norwegian Bokm\u00e5l", 
-                "Norwegian Nynorsk", 
-                "Norwegian", 
-                "Nuosu", 
-                "Southern Ndebele", 
-                "Occitan", 
-                "Ojibwe, Ojibwa", 
-                "Old Church Slavonic,Church Slavonic,Old Bulgarian", 
-                "Oromo", 
-                "Oriya", 
-                "Ossetian, Ossetic", 
-                "Panjabi, Punjabi", 
-                "P\u0101li", 
-                "Persian (Farsi)", 
-                "Polish", 
-                "Pashto, Pushto", 
-                "Portuguese", 
-                "Quechua", 
-                "Romansh", 
-                "Kirundi", 
-                "Romanian", 
-                "Russian", 
-                "Sanskrit (Sa\u1e41sk\u1e5bta)", 
-                "Sardinian", 
-                "Sindhi", 
-                "Northern Sami", 
-                "Samoan", 
-                "Sango", 
-                "Serbian", 
-                "Scottish Gaelic, Gaelic", 
-                "Shona", 
-                "Sinhala, Sinhalese", 
-                "Slovak", 
-                "Slovene", 
-                "Somali", 
-                "Southern Sotho", 
-                "Spanish, Castilian", 
-                "Sundanese", 
-                "Swahili", 
-                "Swati", 
-                "Swedish", 
-                "Tamil", 
-                "Telugu", 
-                "Tajik", 
-                "Thai", 
-                "Tigrinya", 
-                "Tibetan Standard, Tibetan, Central", 
-                "Turkmen", 
-                "Tagalog", 
-                "Tswana", 
-                "Tonga (Tonga Islands)", 
-                "Turkish", 
-                "Tsonga", 
-                "Tatar", 
-                "Twi", 
-                "Tahitian", 
-                "Uyghur, Uighur", 
-                "Ukrainian", 
-                "Urdu", 
-                "Uzbek", 
-                "Venda", 
-                "Vietnamese", 
-                "Volap\u00fck", 
-                "Walloon", 
-                "Welsh", 
-                "Wolof", 
-                "Western Frisian", 
-                "Xhosa", 
-                "Yiddish", 
-                "Yoruba", 
-                "Zhuang, Chuang", 
-                "Zulu", 
-                "Not applicable"
-            ], 
-            "type": "string"
+            "type": "array", 
+            "description": "Language of the Dataset"
         }, 
         "producer": {
             "description": "Person or organization with the financial or administrative responsibility over this Dataset", 
@@ -520,28 +500,24 @@
                 "properties": {
                     "producerName": {
                         "display_format": "#VALUE", 
-                        "required": false, 
                         "description": "Producer name", 
                         "title": "Name", 
                         "type": "string"
                     }, 
                     "producerAffiliation": {
                         "display_format": "(#VALUE)", 
-                        "required": false, 
                         "description": "The organization with which the producer is affiliated.", 
                         "title": "Affiliation", 
                         "type": "string"
                     }, 
                     "producerAbbreviation": {
                         "display_format": "(#VALUE)", 
-                        "required": false, 
                         "description": "The abbreviation by which the producer is commonly known. (ex. IQSS, ICPSR)", 
                         "title": "Abbreviation", 
                         "type": "string"
                     }, 
                     "producerURL": {
                         "display_format": "<a href='#VALUE'>#VALUE</a>", 
-                        "required": false, 
                         "description": "Producer URL points to the producer's web presence, if appropriate. Enter an absolute URL where the producer's web site is found, such as http://www.my.org.", 
                         "title": "URL", 
                         "pattern": "some pattern", 
@@ -549,7 +525,6 @@
                     }, 
                     "producerLogoURL": {
                         "display_format": "<img src='#VALUE' alt='#NAME' class='metadata-logo'/><br/>", 
-                        "required": false, 
                         "description": "URL for the producer's logo, which points to this  producer's web-accessible logo image. Enter an absolute URL where the producer's logo image is found, such as http://www.my.org/images/logo.gif.", 
                         "title": "Logo URL", 
                         "pattern": "some pattern", 
@@ -564,14 +539,12 @@
         }, 
         "productionDate": {
             "display_format": null, 
-            "required": false, 
             "description": "Date when the data collection or other materials were produced (not distributed, published or archived).", 
             "title": "Production Date", 
             "type": "string"
         }, 
         "productionPlace": {
             "display_format": null, 
-            "required": false, 
             "description": "The location where the data collection and any other related materials were produced.", 
             "title": "Production Place", 
             "type": "string"
@@ -584,33 +557,31 @@
                 "properties": {
                     "contributorType": {
                         "display_format": "#VALUE", 
-                        "required": false, 
                         "description": "The type of contributor of the  resource.", 
                         "title": "Type", 
                         "enum": [
-                            "Data Collector", 
-                            "Data Curator", 
                             "Data Manager", 
+                            "Related Person", 
+                            "Data Collector", 
+                            "Supervisor", 
+                            "Researcher", 
+                            "Rights Holder", 
+                            "Work Package Leader", 
+                            "Project Leader", 
+                            "Project Member", 
+                            "Hosting Institution", 
                             "Editor", 
                             "Funder", 
-                            "Hosting Institution", 
-                            "Project Leader", 
-                            "Project Manager", 
-                            "Project Member", 
-                            "Related Person", 
-                            "Researcher", 
+                            "Other", 
                             "Research Group", 
-                            "Rights Holder", 
-                            "Sponsor", 
-                            "Supervisor", 
-                            "Work Package Leader", 
-                            "Other"
+                            "Project Manager", 
+                            "Data Curator", 
+                            "Sponsor"
                         ], 
                         "type": "string"
                     }, 
                     "contributorName": {
                         "display_format": "#VALUE", 
-                        "required": false, 
                         "description": "The Family Name, Given Name or organization name of the contributor.", 
                         "title": "Name", 
                         "type": "string"
@@ -630,14 +601,12 @@
                 "properties": {
                     "grantNumberAgency": {
                         "display_format": "#VALUE", 
-                        "required": false, 
                         "description": "Grant Number Agency", 
                         "title": "Grant Agency", 
                         "type": "string"
                     }, 
                     "grantNumberValue": {
                         "display_format": "#VALUE", 
-                        "required": false, 
                         "description": "The grant or contract number of the project that  sponsored the effort.", 
                         "title": "Grant Number", 
                         "type": "string"
@@ -657,28 +626,24 @@
                 "properties": {
                     "distributorName": {
                         "display_format": "#VALUE", 
-                        "required": false, 
                         "description": "Distributor name", 
                         "title": "Name", 
                         "type": "string"
                     }, 
                     "distributorAffiliation": {
                         "display_format": "(#VALUE)", 
-                        "required": false, 
                         "description": "The organization with which the distributor contact is affiliated.", 
                         "title": "Affiliation", 
                         "type": "string"
                     }, 
                     "distributorAbbreviation": {
                         "display_format": "(#VALUE)", 
-                        "required": false, 
                         "description": "The abbreviation by which this distributor is commonly known (e.g., IQSS, ICPSR).", 
                         "title": "Abbreviation", 
                         "type": "string"
                     }, 
                     "distributorURL": {
                         "display_format": "<a href='#VALUE'>#VALUE</a>", 
-                        "required": false, 
                         "description": "Distributor URL points to the distributor's web presence, if appropriate. Enter an absolute URL where the distributor's web site is found, such as http://www.my.org.", 
                         "title": "URL", 
                         "pattern": "some pattern", 
@@ -686,7 +651,6 @@
                     }, 
                     "distributorLogoURL": {
                         "display_format": "<img src='#VALUE' alt='#NAME' class='metadata-logo'/><br/>", 
-                        "required": false, 
                         "description": "URL of the distributor's logo, which points to this  distributor's web-accessible logo image. Enter an absolute URL where the distributor's logo image is found, such as http://www.my.org/images/logo.gif.", 
                         "title": "Logo URL", 
                         "pattern": "some pattern", 
@@ -701,21 +665,18 @@
         }, 
         "distributionDate": {
             "display_format": null, 
-            "required": false, 
             "description": "Date that the work was made available for distribution/presentation.", 
             "title": "Distribution Date", 
             "type": "string"
         }, 
         "depositor": {
             "display_format": null, 
-            "required": false, 
             "description": "The person (Family Name, Given Name) or the name of the organization that deposited this Dataset to the repository.", 
             "title": "Depositor", 
             "type": "string"
         }, 
         "dateOfDeposit": {
             "display_format": null, 
-            "required": false, 
             "description": "Date that the Dataset was deposited into the repository.", 
             "title": "Deposit Date", 
             "type": "string"
@@ -728,14 +689,12 @@
                 "properties": {
                     "timePeriodCoveredStart": {
                         "display_format": "#NAME: #VALUE", 
-                        "required": false, 
                         "description": "Start date which reflects the time period covered by the data, not the dates of coding or making documents machine-readable or the dates the data were collected.", 
                         "title": "Start", 
                         "type": "string"
                     }, 
                     "timePeriodCoveredEnd": {
                         "display_format": "#NAME: #VALUE", 
-                        "required": false, 
                         "description": "End date which reflects the time period covered by the data, not the dates of coding or making documents machine-readable or the dates the data were collected.", 
                         "title": "End", 
                         "type": "string"
@@ -755,14 +714,12 @@
                 "properties": {
                     "dateOfCollectionStart": {
                         "display_format": "#NAME: #VALUE", 
-                        "required": false, 
                         "description": "Date when the data collection started.", 
                         "title": "Start", 
                         "type": "string"
                     }, 
                     "dateOfCollectionEnd": {
                         "display_format": "#NAME: #VALUE", 
-                        "required": false, 
                         "description": "Date when the data collection ended.", 
                         "title": "End", 
                         "type": "string"
@@ -775,15 +732,17 @@
             "type": "array"
         }, 
         "kindOfData": {
+            "uniqueItems": true, 
+            "items": {
+                "title": "Kind of Data", 
+                "type": "string"
+            }, 
             "display_format": null, 
-            "required": false, 
-            "description": "Type of data included in the file: survey data, census/enumeration data, aggregate data, clinical data, event/transaction data, program source code, machine-readable text, administrative records data, experimental data, psychological test, textual data, coded textual, coded documents, time budget diaries, observation data/ratings, process-produced data, or other.", 
-            "title": "Kind of Data", 
-            "type": "string"
+            "type": "array", 
+            "description": "Type of data included in the file: survey data, census/enumeration data, aggregate data, clinical data, event/transaction data, program source code, machine-readable text, administrative records data, experimental data, psychological test, textual data, coded textual, coded documents, time budget diaries, observation data/ratings, process-produced data, or other."
         }, 
         "series": {
             "display_format": ":", 
-            "required": false, 
             "description": "Information about the Dataset series.", 
             "title": "Series", 
             "type": "string"
@@ -796,14 +755,12 @@
                 "properties": {
                     "softwareName": {
                         "display_format": "#VALUE", 
-                        "required": false, 
                         "description": "Name of software used to generate the Dataset.", 
                         "title": "Name", 
                         "type": "string"
                     }, 
                     "softwareVersion": {
                         "display_format": "#NAME: #VALUE", 
-                        "required": false, 
                         "description": "Version of the software used to generate the Dataset.", 
                         "title": "Version", 
                         "type": "string"
@@ -816,53 +773,66 @@
             "type": "array"
         }, 
         "relatedMaterial": {
+            "uniqueItems": true, 
+            "items": {
+                "title": "Related Material", 
+                "type": "string"
+            }, 
             "display_format": null, 
-            "required": false, 
-            "description": "Any material related to this Dataset.", 
-            "title": "Related Material", 
-            "type": "string"
+            "type": "array", 
+            "description": "Any material related to this Dataset."
         }, 
         "relatedDatasets": {
+            "uniqueItems": true, 
+            "items": {
+                "title": "Related Datasets", 
+                "type": "string"
+            }, 
             "display_format": null, 
-            "required": false, 
-            "description": "Any Datasets that are related to this Dataset, such as previous research on this subject.", 
-            "title": "Related Datasets", 
-            "type": "string"
+            "type": "array", 
+            "description": "Any Datasets that are related to this Dataset, such as previous research on this subject."
         }, 
         "otherReferences": {
+            "uniqueItems": true, 
+            "items": {
+                "title": "Other References", 
+                "type": "string"
+            }, 
             "display_format": null, 
-            "required": false, 
-            "description": "Any references that would serve as background or supporting material to this Dataset.", 
-            "title": "Other References", 
-            "type": "string"
+            "type": "array", 
+            "description": "Any references that would serve as background or supporting material to this Dataset."
         }, 
         "dataSources": {
+            "uniqueItems": true, 
+            "items": {
+                "title": "Data Sources", 
+                "type": "string"
+            }, 
             "display_format": null, 
-            "required": false, 
-            "description": "List of books, articles, serials, or machine-readable data files that served as the sources of the data collection.", 
-            "title": "Data Sources", 
-            "type": "string"
+            "type": "array", 
+            "description": "List of books, articles, serials, or machine-readable data files that served as the sources of the data collection."
         }, 
         "originOfSources": {
             "display_format": null, 
-            "required": false, 
             "description": "For historical materials, information about the origin of the sources and the rules followed in establishing the sources should be specified.", 
             "title": "Origin of Sources", 
             "type": "string"
         }, 
         "characteristicOfSources": {
             "display_format": null, 
-            "required": false, 
             "description": "Assessment of characteristics and source material.", 
             "title": "Characteristic of Sources Noted", 
             "type": "string"
         }, 
         "accessToSources": {
             "display_format": null, 
-            "required": false, 
             "description": "Level of documentation of the original sources.", 
             "title": "Documentation and Access to Sources", 
             "type": "string"
         }
-    }
+    }, 
+    "required": [
+        "title", 
+        "subject"
+    ]
 }

@@ -9,6 +9,7 @@ from django.utils.text import slugify
 from jsonfield import JSONField
 from model_utils.models import TimeStampedModel
 
+
 class MetadataSchema(TimeStampedModel):
 
     title = models.CharField(max_length=100)
@@ -19,7 +20,14 @@ class MetadataSchema(TimeStampedModel):
     description = models.TextField(blank=True)
 
     def __str__(self):
-        return '%s' % (self.title)
+        return '%s (%s)' % (self.title, self.version)
+
+    class Meta:
+        unique_together = ('title', 'version')
+        ordering = ('title', '-version',)
+
+    def get_schema_dict(self):
+        return self.schema
 
     def as_json(self, indent=None):
 
@@ -29,9 +37,11 @@ class MetadataSchema(TimeStampedModel):
 
 
     def get_api_url(self):
+        if not self.id:
+            return 'n/a'
         api_dict = dict(schema_name_slug=self.slug,\
                     version=self.version)
-        url = reverse('view_schema', kwargs=api_dict)
+        url = reverse('view_schema_with_identifier', kwargs=api_dict)
 
         return url
 
@@ -51,15 +61,36 @@ class MetadataSchema(TimeStampedModel):
     def as_dict(self):
         return self.schema
 
-
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
         self.add_version_to_schema()
         super(MetadataSchema, self).save(*args, **kwargs)
 
+
+class FileMetadata(TimeStampedModel):
+
+    schema = models.ForeignKey(MetadataSchema)
+    datafile_id = models.IntegerField(default=1)
+    metadata = JSONField(load_kwargs={'object_pairs_hook': OrderedDict})
+    published = models.BooleanField(default=True)
+    # How does this version relate to DatasetVersion?
+    version = models.IntegerField(default=1, help_text='Placeholder')
+
     class Meta:
-        unique_together = ('title', 'version')
-        ordering = ('title', '-version',)
+        unique_together = ('schema', 'datafile_id', 'version')
+        ordering = ('schema', '-version',)
+
+    def __str__(self):
+        return '%s, file id: %s (%s)' % (self.schema, self.datafile_id, self.version)
+
+    def as_json(self, indent=None):
+
+        if indent is not None:
+            indent=4
+        return json.dumps(self.schema, indent=indent)
+
+    def save(self, *args, **kwargs):
+        super(FileMetadata, self).save(*args, **kwargs)
 
 """
 from metadata_organizer.models import MetadataSchema

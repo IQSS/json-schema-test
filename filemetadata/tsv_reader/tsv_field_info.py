@@ -28,8 +28,9 @@ class MetadataLine(object):
             len(self.vocabinfo_list) == 0:
             return None
 
-        # Iterate through VocabInfo objects
-        vocab_values = [x.value for x in self.vocabinfo_list]
+        # Iterate through VocabInfo objects and pull out values
+        # Also remove dupes
+        vocab_values = list(set([x.value for x in self.vocabinfo_list]))
         return vocab_values
 
 
@@ -55,6 +56,7 @@ class MetadataLine(object):
                 val = FormatHelper.format_val(line_items[idx])
             else:
                 val = None
+
             self.__dict__[field_name] = val
 
     def show(self):
@@ -107,15 +109,15 @@ allowmultiples
         # --------------------------------------
         inner_props = OrderedDict(title=self.title)
 
-        # Add the type
-        prop_type = self.get_json_schema_type()
-        if prop_type:
-            inner_props.update(prop_type)
-
         # Add enum vocabulary
         vocab_enum = self.get_vocab_values_only()
         if vocab_enum:
             inner_props['enum'] = vocab_enum
+        else:
+            # Add the type if there's no enum
+            prop_type = self.get_json_schema_type()
+            if prop_type:
+                inner_props.update(prop_type)
 
         # --------------------------------------
         # Define the outer property dict
@@ -123,7 +125,7 @@ allowmultiples
         prop_dict = OrderedDict(type='array',\
                         uniqueItems=True,\
                         items=inner_props,\
-                        required=self.required,\
+                        #required=self.required,\
                         display_format=self.displayFormat,\
                         description=self.description,\
                         )
@@ -156,7 +158,7 @@ allowmultiples
         prop_dict = OrderedDict(title=self.title,\
                         description=self.description,\
                         #propertyOrder=self.displayOrder,\
-                        required=self.required,\
+                        #required=self.required,\
                         display_format=self.displayFormat\
                         )
         vocab_enum = self.get_vocab_values_only()
@@ -193,8 +195,8 @@ allowmultiples
                             properties=properties)
                         )
             return prop_dict
-        #elif self.allowmultiples:
-        #    return self.as_array_json_schema_property()
+        elif self.allowmultiples:
+            return self.as_array_json_schema_property()
         else:
             return self.as_basic_json_schema_property()
         """

@@ -73,7 +73,8 @@ class MetadataReader(object):
         block_information['title'] = self.name
         block_information['type'] = 'object'
         block_information['properties'] = field_ordered_dict
-        #block_information['required'] = required_field_list
+        if len(required_field_list) > 0:
+            block_information['required'] = required_field_list
         print json.dumps(block_information, indent=4)
 
         json_fname = join(JSON_SCHEMA_DIR, basename(self.fname).replace('.tsv', '.json'))

@@ -4,7 +4,6 @@
     "properties": {
         "hbgdkiStudyName": {
             "display_format": null, 
-            "required": false, 
             "description": "Name of the study.", 
             "title": "Name of Study", 
             "type": "string"
@@ -17,33 +16,31 @@
                 "properties": {
                     "hbgdkiStudyRegistryType": {
                         "display_format": null, 
-                        "required": false, 
                         "description": "Which study registry was used?", 
                         "title": "ID Type", 
                         "enum": [
-                            "International Clinical Trials Registry Platform (ICTRP)", 
-                            "Australian New Zealand Clinical Trials Registry (ANZCTR)", 
-                            "Brazilian Clinical Trials Registry (ReBec)", 
-                            "Chinese Clinical Trial Registry (ChiCTR)", 
-                            "Clinical Research Information Service (CRiS), Republic of Korea", 
-                            "Clinical Trials Registry - India (CTRI)", 
-                            "Cuban Public Registry of Clinical Trials (RPCEC)", 
-                            "EU Clinical Trials Register (EU-CTR)", 
-                            "German Clinical Trials Register (DRKS)", 
-                            "Iranian Registry of Clinical Trials (IRCT)", 
                             "ISRCTN", 
-                            "Japan Primary Registries Network (JPRN)", 
-                            "Pan African Clinical Trial Registry (PACTR)", 
-                            "Sri Lanka Clinical Trials Registry (SLCTR)", 
-                            "Thai Clinical Trials Registry (TCTR)", 
+                            "Australian New Zealand Clinical Trials Registry (ANZCTR)", 
+                            "German Clinical Trials Register (DRKS)", 
                             "The Netherlands National Trial Register (NTR)", 
-                            "US Clinical Trials Registry (clinicaltrials.gov)"
+                            "Clinical Trials Registry - India (CTRI)", 
+                            "US Clinical Trials Registry (clinicaltrials.gov)", 
+                            "Clinical Research Information Service (CRiS), Republic of Korea", 
+                            "International Clinical Trials Registry Platform (ICTRP)", 
+                            "Iranian Registry of Clinical Trials (IRCT)", 
+                            "Japan Primary Registries Network (JPRN)", 
+                            "Sri Lanka Clinical Trials Registry (SLCTR)", 
+                            "Brazilian Clinical Trials Registry (ReBec)", 
+                            "EU Clinical Trials Register (EU-CTR)", 
+                            "Pan African Clinical Trial Registry (PACTR)", 
+                            "Thai Clinical Trials Registry (TCTR)", 
+                            "Cuban Public Registry of Clinical Trials (RPCEC)", 
+                            "Chinese Clinical Trial Registry (ChiCTR)"
                         ], 
                         "type": "string"
                     }, 
                     "hbgdkiStudyRegistryNumber": {
                         "display_format": null, 
-                        "required": false, 
                         "description": "ID number for the study per the registry.", 
                         "title": "ID Number", 
                         "type": "string"
@@ -56,72 +53,70 @@
             "type": "array"
         }, 
         "hbgdkiStudyType": {
+            "uniqueItems": true, 
+            "items": {
+                "title": "Type of study", 
+                "enum": [
+                    "Observational", 
+                    "Meta-analysis", 
+                    "Interventional", 
+                    "Other Survey", 
+                    "Case Control", 
+                    "Demographic & Health Survey"
+                ]
+            }, 
             "display_format": null, 
-            "required": false, 
-            "description": "Type of study.", 
-            "title": "Type of study", 
-            "enum": [
-                "Interventional", 
-                "Observational", 
-                "Case Control", 
-                "Meta-analysis", 
-                "Demographic & Health Survey", 
-                "Other Survey"
-            ], 
-            "type": "string"
+            "type": "array", 
+            "description": "Type of study."
         }, 
         "hbgdkiIntervention": {
             "display_format": null, 
-            "required": false, 
             "description": "If an interventional study, describe the interventions.", 
             "title": "Intervention", 
             "type": "string"
         }, 
         "hbgdkiLowerLimitAge": {
             "display_format": null, 
-            "required": false, 
             "description": "Lower limit of age at enrollment.", 
             "title": "Lower limit of age at enrollment", 
             "type": "integer"
         }, 
         "hbgdkiUnitsLowerLimitAge": {
             "display_format": null, 
-            "required": false, 
             "description": "Units for lower age limit.", 
             "title": "Units for lower age limit", 
             "type": "string"
         }, 
         "hbgdkiUpperLimitAge": {
             "display_format": null, 
-            "required": false, 
             "description": "Upper limit of age at enrollment.", 
             "title": "Upper limit of age at enrollment", 
             "type": "integer"
         }, 
         "hbgdkiUnitsUpperLimitAge": {
             "display_format": null, 
-            "required": false, 
             "description": "Units for upper age limit.", 
             "title": "Units for upper age limit", 
             "type": "string"
         }, 
         "hbgdkiOther": {
             "display_format": null, 
-            "required": false, 
             "description": "Other entry criteria.", 
             "title": "Other entry criteria", 
             "type": "string"
         }, 
         "hbgdkiBiosampleType": {
+            "uniqueItems": true, 
+            "items": {
+                "title": "Types of biosamples collected, if any", 
+                "type": "string"
+            }, 
             "display_format": null, 
-            "required": false, 
-            "description": "Types of biosamples used (e.g., Blood, Stool,...).", 
-            "title": "Types of biosamples collected, if any", 
-            "type": "string"
+            "type": "array", 
+            "description": "Types of biosamples used (e.g., Blood, Stool,...)."
         }, 
         "hbgdkiGestationalAge": {
             "display_format": null, 
-            "required": false, 
             "description": "Gestational age", 
             "title": "Gestational age", 
             "enum": [
@@ -132,7 +127,6 @@
         }, 
         "hbgdkiAnthropometry": {
             "display_format": null, 
-            "required": false, 
             "description": "Anthropometry", 
             "title": "Anthropometry", 
             "enum": [
@@ -143,7 +137,6 @@
         }, 
         "hbgdkiBirthWeight": {
             "display_format": null, 
-            "required": false, 
             "description": "Birth weight", 
             "title": "Birth weight", 
             "enum": [
@@ -154,7 +147,6 @@
         }, 
         "hbgdkiNeurocognitiveDev": {
             "display_format": null, 
-            "required": false, 
             "description": "Neurocognitive development", 
             "title": "Neurocognitive development", 
             "enum": [
@@ -165,7 +157,6 @@
         }, 
         "hbgdkiMaternalChar": {
             "display_format": null, 
-            "required": false, 
             "description": "Dataset parameters can include: age, height, weight, obstetric history.", 
             "title": "Maternal characteristics", 
             "enum": [
@@ -176,7 +167,6 @@
         }, 
         "hbgdkiPregnancyBirth": {
             "display_format": null, 
-            "required": false, 
             "description": "Dataset parameters can include: Morbidity, nutrition, ANC, delivery method and setting.", 
             "title": "Pregnancy and birth", 
             "enum": [
@@ -187,7 +177,6 @@
         }, 
         "hbgdkiSocioeconomicChar": {
             "display_format": null, 
-            "required": false, 
             "description": "Socioeconomic characteristics", 
             "title": "Socioeconomic characteristics", 
             "enum": [
@@ -198,7 +187,6 @@
         }, 
         "hbgdkiFeedingCare": {
             "display_format": null, 
-            "required": false, 
             "description": "Feeding care & practice", 
             "title": "Feeding care & practice", 
             "enum": [
@@ -209,7 +197,6 @@
         }, 
         "hbgdkiImmunizations": {
             "display_format": null, 
-            "required": false, 
             "description": "Immunizations", 
             "title": "Immunizations", 
             "enum": [
@@ -220,7 +207,6 @@
         }, 
         "hbgdkiInfantChildhoodMorbidity": {
             "display_format": null, 
-            "required": false, 
             "description": "Morbidity in infancy and childhood", 
             "title": "Morbidity in infancy and childhood", 
             "enum": [
@@ -231,7 +217,6 @@
         }, 
         "hbgdkiWaterSanHygiene": {
             "display_format": null, 
-            "required": false, 
             "description": "Water, sanitation and hygiene standards", 
             "title": "Water, sanitation and hygiene standards", 
             "enum": [
