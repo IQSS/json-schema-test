@@ -98,6 +98,54 @@ allowmultiples
       },
     """
 
+    def as_array_json_schema_property(self):
+        """
+        Arrays with only a single item. e.g. an Array of strings
+        """
+        # --------------------------------------
+        # Define the inner property dict
+        # --------------------------------------
+        inner_props = OrderedDict(title=self.title)
+
+        # Add the type
+        prop_type = self.get_json_schema_type()
+        if prop_type:
+            inner_props.update(prop_type)
+
+        # Add enum vocabulary
+        vocab_enum = self.get_vocab_values_only()
+        if vocab_enum:
+            inner_props['enum'] = vocab_enum
+
+        # --------------------------------------
+        # Define the outer property dict
+        # --------------------------------------
+        prop_dict = OrderedDict(type='array',\
+                        uniqueItems=True,\
+                        items=inner_props,\
+                        required=self.required,\
+                        display_format=self.displayFormat,\
+                        description=self.description,\
+                        )
+
+        if self.required:
+            prop_dict['minItems'] = 1
+
+        return prop_dict
+
+
+    """
+    "tags": {
+            "type": "array",
+            "items": {
+                "title":"tag",
+                "type": "string"
+            },
+            "minItems": 1,
+            "uniqueItems": true
+
+        },    """
+
     def as_basic_json_schema_property(self):
         """
         Definition of single field as a Python dict
@@ -145,6 +193,8 @@ allowmultiples
                             properties=properties)
                         )
             return prop_dict
+        #elif self.allowmultiples:
+        #    return self.as_array_json_schema_property()
         else:
             return self.as_basic_json_schema_property()
         """
