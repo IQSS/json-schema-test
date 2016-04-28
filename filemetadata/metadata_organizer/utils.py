@@ -7,37 +7,36 @@ from jsonschema import Draft4Validator
 
 CHOSEN_VALIDATOR_CLASS = Draft4Validator
 
+def msgt(m1, m2):
+    if m2 is None:
+        return
+    print '=' * 40
+    print m1
+    print '-' * 40
+    print m2
 
-
+ERR_MSG_SCHEMA_NONE = 'The schema was None (or null)'
 
 def validate_schema(schema_dict):
-
-    try:
-        Draft4Validator.check_schema(schema_dict)
-        return True
-    except jsonschema.exceptions.SchemaError as schema_err:
-        print '-' * 40
-        print 'message', schema_err.message
-        print 'context', schema_err.context
-        print 'cause', schema_err.cause
-        print '-' * 40
-        print 'instance', schema_err.instance
-        print 'path', schema_err.path
-        print 'schema', schema_err.schema
-        print 'failed_validator', schema_err.validator_value
-        print '-' * 40
-        #for err in schema_err:
-        #    print '> ', err.message
-        return False, schema_err
-    #.check_schema(schema_dict)
-    return
-    errors = sorted(v.iter_errors(instance), key=lambda e: e.path)
-
+    """
+    Validate a schema using the Draft4Validator
+    """
+    if schema_dict is None:
+        return False, [ERR_MSG_SCHEMA_NONE]
     try:
         CHOSEN_VALIDATOR_CLASS.check_schema(schema_dict)
         return True, None
     except jsonschema.exceptions.SchemaError as schema_err:
-        return False, schema_err
+        err_msgs = []
+        if schema_err.path:
+            err_msg = 'Error Location: %s' % '->'.join(schema_err.path)
+            err_msgs.append(err_msg)
+        err_msgs.append('Error: %s' % schema_err.message)
+        err_msgs.append('(Note: JSON schema Draft 4 validation was used)')
+
+        return False, err_msgs
+
+
 
 def validate_filemetadata(schema_dict, data_dict):
     """
@@ -106,8 +105,11 @@ if __name__ == '__main__':
     #content = open('tests/person_01.json', 'rb').read()
     #content = open('tests/repository.json', 'rb').read()
     schema = json.loads(content)
-    print validate_schema(schema)
-
+    success, err_list = validate_schema(schema)
+    if not success:
+        print '\n'.join(err_list)
+    else:
+        print 'success'
 """
 import json
 import jsonschema
