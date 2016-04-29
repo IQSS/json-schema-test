@@ -1,6 +1,8 @@
 
 from django.test import TestCase
-from metadata_organizer.utils import validate_schema, validate_filemetadata,\
+from metadata_organizer.utils import validate_schema,\
+    validate_schema_string,\
+    validate_filemetadata,\
     ERR_MSG_SCHEMA_NONE
 import json
 import collections
@@ -13,8 +15,8 @@ class JoinTargetTestCase(TestCase):
 
     @classmethod
     def setUpClass(cls):
-        msg('\n>>> setUpClass')
-        super(JoinTargetTestCase, cls).setUpClass()
+        msg('\n>>> setUpClass SchemaValidationTestCase')
+        super(SchemaValidationTestCase, cls).setUpClass()
 
         # Verify test directory exists
         assert isdir(TEST_FILE_DIR),\
@@ -40,30 +42,39 @@ class JoinTargetTestCase(TestCase):
 
     def test_01_schema_valid(self):
         msgt('1 - Test a valid schema')
-        schema = self.load_json_test_file('astro_good_01.json')
+        schema = self.load_json_test_file('astro_schema_good_01.json')
         self.assertTrue(validate_schema(schema))
 
-    def test_0201__schema_null(self):
+        # Test it as a string
+        msg('1a - Test it as a string')
+        schema_string = json.dumps(schema)
+        self.assertTrue(validate_schema_string(schema_string))
+
+    def test_02_schema_null(self):
         msgt('2- Test sending "None" for validation')
         success, error_list = validate_schema(None)
         self.assertEqual(success, False)
         self.assertEqual(error_list[0], ERR_MSG_SCHEMA_NONE)
 
+        # Test it as a string
+        msg('2a - Test it as a string')
+        success, error_list = validate_schema_string(None)
+        self.assertEqual(success, False)
+        self.assertEqual(error_list[0], ERR_MSG_SCHEMA_NONE)
+
     def test_03_schema_dupe_enum_value(self):
         msgt('3 - Schema with duplicate enum value')
-        schema = self.load_json_test_file('astro_bad_01_enum.json')
         success, error_list = validate_schema(schema)
-        print error_list
         self.assertEqual(success, False)
         self.assertEqual(error_list[0], u'Error Location: properties->astroType->items')
         self.assertTrue(error_list[1].endswith(\
             'is not valid under any of the given schemas'))
 
+
+
     def test_04_schema_invalid_required_field(self):
         msgt('4 - Schema with invalid required field')
-        schema = self.load_json_test_file('astro_bad_02_enum.json')
         success, error_list = validate_schema(schema)
-        print error_list
         self.assertEqual(success, False)
         self.assertEqual(error_list[0], u'Error Location: properties->astroFacility->items')
         self.assertTrue(error_list[1].endswith(\
@@ -71,20 +82,7 @@ class JoinTargetTestCase(TestCase):
 
 
 
-    """
-    def test_name_is_slugified(self):
 
-        tname = standardize_table_name('hello" there-table')
-        self.assertEqual(tname, 'hello_there')
 
-        tname = standardize_table_name('1-2-button-+shoe')
-        self.assertEqual(tname, 't_1_2_butto')
 
-    def test_random_chars(self):
 
-        tname = 'mytable'
-        for x in range(1, 11):
-            random_chars = get_random_chars(x+1)
-            new_name = '{0}_{1}'.format(tname, random_chars)
-            self.assertEqual(len(new_name), len(tname) + x + 2)
-    """

@@ -7,7 +7,7 @@
       "uniqueItems": true,
       "items": {
         "title": "Type",
-        "type": "string",
+        "type": "numeric",
         "enum": [
           "Image",
           "Image",

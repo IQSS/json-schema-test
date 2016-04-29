@@ -1,0 +1,62 @@
+{
+    "astroType": [
+        "Image"
+    ],
+    "astroFacility": [
+        "ESO-NTT",
+        "ESO-VLT-U1"
+    ],
+    "astroInstrument": [
+        "SOFI",
+        "ISAAC"
+    ],
+    "astroObject": [
+        "Flat Fielded",
+        "L2",
+        "L6",
+        "L1",
+        "L4",
+        "L5",
+        "L3"
+    ],
+    "resolution.Spatial": "2.97409421611617E-8 - 1.96286967956165E-5",
+    "coverage.Temporal": [
+        {
+            "coverage.Temporal.StartTime": "2000-03-14T00:14:58",
+            "coverage.Temporal.StopTime": "2000-03-14T00:14:59.200"
+        },
+        {
+            "coverage.Temporal.StartTime": "2002-10-10T06:49:07",
+            "coverage.Temporal.StopTime": "2002-10-10T06:49:07.110"
+        },
+        {
+            "coverage.Temporal.StartTime": "2002-12-19T06:07:31",
+            "coverage.Temporal.StopTime": "2002-12-19T06:07:31.110"
+        },
+        {
+            "coverage.Temporal.StartTime": "2002-10-10T05:48:56",
+            "coverage.Temporal.StopTime": "2002-10-10T05:48:56.110"
+        },
+        {
+            "coverage.Temporal.StartTime": "2002-10-12T06:47:06",
+            "coverage.Temporal.StopTime": "2002-10-12T06:47:06.110"
+        },
+        {
+            "coverage.Temporal.StartTime": "2002-10-14T08:34:35",
+            "coverage.Temporal.StopTime": "2002-10-14T08:34:35.110"
+        },
+        {
+            "coverage.Temporal.StartTime": "2002-10-12T05:48:41.173",
+            "coverage.Temporal.StopTime": "2002-10-12T05:48:41.283"
+        }
+    ],
+    "coverage.Spatial": [
+        "(85.4366666666667 -1.90699166666667)",
+        "(83.8304690978601 -5.39957831315445)",
+        "(83.8040205175233 -5.40392302994954)",
+        "(83.8290803234773 -5.37912292534363)",
+        "(83.7832586106861 -5.36222589662728)",
+        "(83.8056282744872 -5.38764313485259)",
+        "(83.8479212323983 -5.39678424213229)"
+    ]
+}

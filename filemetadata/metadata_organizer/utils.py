@@ -1,115 +1,100 @@
 """
-Convenience method to validate a metadata against a JSON schema
+Convenience methods that wrap jsonschema libraries validation
+
+See jsonschema docs for error breakdown:
+https://python-jsonschema.readthedocs.org/en/latest/errors/#module-jsonschema
 """
+from __future__ import print_function
 import json
 import jsonschema
+from collections import OrderedDict
 from jsonschema import Draft4Validator
 
+# JSON Schema validator information
 CHOSEN_VALIDATOR_CLASS = Draft4Validator
+ERR_NOTE_VALIDATOR_TYPE = '(Note: JSON schema Draft 4 validation was used)'
 
-def msgt(m1, m2):
-    if m2 is None:
-        return
-    print '=' * 40
-    print m1
-    print '-' * 40
-    print m2
-
+# General error messages for Null (None) values
 ERR_MSG_SCHEMA_NONE = 'The schema was None (or null)'
+ERR_MSG_DATA_NONE = 'The JSON metadata was None (or null)'
+
+
+def format_error_message(jsonschema_err):
+    """
+    Given a jsonschema.exceptions.SchemaError,
+    return a list of formatted error messages
+    """
+    assert isinstance(jsonschema_err, jsonschema.exceptions.SchemaError) or\
+        isinstance(jsonschema_err, jsonschema.exceptions.ValidationError),\
+        ("jsonschema_err must be an instance of: jsonschema.exceptions.SchemaError"
+        " or jsonschema.exceptions.ValidationError ")
+
+    err_msgs = []
+    if jsonschema_err.path:
+        path_as_strings = [str(x) for x in jsonschema_err.path]
+        err_msg = 'Error Location: %s' % '->'.join(path_as_strings)
+        err_msgs.append(err_msg)
+    err_msgs.append('Error: %s' % jsonschema_err.message)
+    err_msgs.append(ERR_NOTE_VALIDATOR_TYPE)
+
+    return err_msgs
+
+def validate_schema_string(schema_string):
+    """
+    Convert schema_string to a python OrderedDict
+    and then validate it
+    """
+    if schema_string is None:
+        return False, [ERR_MSG_SCHEMA_NONE]
+
+    try:
+        schema_dict = json.loads(schema_string, object_pairs_hook=OrderedDict)
+    except ValueError as value_err:
+        return False, "The schema could not be converted to JSON."
+    return validate_schema(schema_dict)
+
 
 def validate_schema(schema_dict):
     """
     Validate a schema using the Draft4Validator
+    "schema_dict" should be a python dict or OrderedDict
     """
     if schema_dict is None:
         return False, [ERR_MSG_SCHEMA_NONE]
+
     try:
         CHOSEN_VALIDATOR_CLASS.check_schema(schema_dict)
         return True, None
     except jsonschema.exceptions.SchemaError as schema_err:
-        err_msgs = []
-        if schema_err.path:
-            err_msg = 'Error Location: %s' % '->'.join(schema_err.path)
-            err_msgs.append(err_msg)
-        err_msgs.append('Error: %s' % schema_err.message)
-        err_msgs.append('(Note: JSON schema Draft 4 validation was used)')
-
-        return False, err_msgs
-
+        return False, format_error_message(schema_err)
 
 
 def validate_filemetadata(schema_dict, data_dict):
     """
-    See jsonschema docs for error breakdown:
-    https://python-jsonschema.readthedocs.org/en/latest/errors/#module-jsonschema
+    (a) Validate a JSON schema and then
+    (b) Validate data against that JSON schema
     """
-    print 'validate_filemetadata'
-    """
+    if schema_dict is None:
+        return False, [ERR_MSG_SCHEMA_NONE]
+
+    if data_dict is None:
+        return False, [ERR_MSG_DATA_NONE]
+
     try:
-        jsonschema.validate(data_dict, schema_dict)
+        el_validator = CHOSEN_VALIDATOR_CLASS(schema_dict)
+        el_validator.validate(data_dict)
         return True, None
-    except jsonschema.exceptions.ValidationError as errors:
-        error_messages = '<br />'.join([err.message for err in errors])
-        return (False, error_messages)
     except jsonschema.exceptions.SchemaError as schema_err:
-        print schema_err
-        print type(schema_err)
-        #error_messages = '<br />'.join([err.message for err in errors])
-        return (False, None)
-    """
-    print Draft4Validator.check_schema(schema_dict)
+        #
+        # The schema did not pass Validation
+        return False, format_error_message(schema_err)
 
-    validator = Draft4Validator(schema_dict)
+    except jsonschema.exceptions.ValidationError as validation_err:
+        #
+        # The data did not validate against the schema
+        return False, format_error_message(validation_err)
 
-    errors = sorted(validator.iter_errors(data_dict), key=lambda e: e.path)
-    if errors:
-        return False, str(errors)
-    for error in errors:
-        print error.message
-        #for suberror in sorted(error.context, key=lambda e: e.schema_path):
-        #    print suberror.schema_path, suberror.message
 
-    #print errors
-
-    return (True, None)
-    """
-    try:
-        res = validate(data_dict, schema_dict)
-        print type(res)
-        return (True, None)
-    except Exception as e:
-
-        print 'unexpected error: ', type(e), e
-        return (False, e)
-    """
-    #for suberror in sorted(error.context, key=lambda e: e.schema_path):
-    #    print(list(suberror.schema_path), suberror.message, sep=", ")
-
-if __name__ == '__main__':
-    schema = {
-                "items": {
-                    "anyOf": [
-                        {"type": "string", "maxLength": 2},
-                        {"type": "integer", "minimum": 5}
-                    ]
-                },
-                "hats" : {
-                    "xtype" : "string",
-                    "required" : False,
-                    "Enum" : [1, 2, 3]
-                }
-            }
-    content = open('tests/astro_good_01.json', 'rb').read()
-    #content = open('tests/astro_bad_01.json', 'rb').read()
-    #content = open('tests/identifier_01.json', 'rb').read()
-    #content = open('tests/person_01.json', 'rb').read()
-    #content = open('tests/repository.json', 'rb').read()
-    schema = json.loads(content)
-    success, err_list = validate_schema(schema)
-    if not success:
-        print '\n'.join(err_list)
-    else:
-        print 'success'
 """
 import json
 import jsonschema
@@ -120,22 +105,15 @@ def validate_schemas():
     json_fnames = [x for x in os.listdir('.') if x.endswith('.json')]
     for fname in json_fnames:
         #if not fname == 'customGSD.json': continue
-        print '-' * 40
-        print 'checking: %s', fname
-        print '-' * 40
+        print ('-' * 40)
+        print ('checking: %s', fname)
+        print ('-' * 40)
         content = open(fname, 'r').read()
         schema_dict = json.loads(content)
         try:
             Draft4Validator.check_schema(schema_dict)
-            print 'yes'
+            print ('yes')
         except jsonschema.exceptions.SchemaError as schema_err:
-            print schema_err
+            print (schema_err)
 
-
-
-
-def validate_schema(schema_dict):
-
-    try:
-        Draft4Validator.check_schema(schema_dict)
 """
