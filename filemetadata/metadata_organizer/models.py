@@ -8,7 +8,9 @@ from django.utils.text import slugify
 #from django.contrib.postgres.fields import JSONField
 from jsonfield import JSONField
 from model_utils.models import TimeStampedModel
-
+from decimal import Decimal
+from proj_utils.decimal_encoder import DecimalEncoder
+from proj_utils.msg_util import msgt
 
 class MetadataSchema(TimeStampedModel):
 
@@ -18,6 +20,7 @@ class MetadataSchema(TimeStampedModel):
     version = models.DecimalField(default=1.0, decimal_places=2, max_digits=5)
     schema = JSONField(load_kwargs={'object_pairs_hook': OrderedDict})
     description = models.TextField(blank=True)
+    contributor = models.CharField(max_length=255, default='Dataverse core')
 
     def __str__(self):
         return '%s (%s)' % (self.title, self.version)
@@ -26,17 +29,50 @@ class MetadataSchema(TimeStampedModel):
         unique_together = ('title', 'version')
         ordering = ('title', '-version',)
 
+    @staticmethod
+    def get_next_version(title, minor_version=False):
+
+        qs = MetadataSchema.objects.filter(title=title).order_by('-version').first()
+        if qs is None:
+            return Decimal('1.0')
+
+        if minor_version:
+            # e.g. 1.5 -> 1.6
+            return qs.version + Decimal('.1')
+        else:
+            # e.g.  1.6 -> 2.0
+            return Decimal(int(qs.version)) + Decimal('1.0')
+
+
     def get_schema_dict(self):
         return self.schema
 
     def as_json(self, indent=None):
-
+        """
+        Dump the schema as JSON
+        """
         if indent is not None:
             indent=4
-        return json.dumps(self.schema, indent=indent)
+
+        schema_copy = self.as_json_dict()
+
+        return json.dumps(schema_copy, indent=indent)
+
+    def as_json_dict(self):
+        """
+        Format the schema for JSON dump.
+        - Change the version from a Decimal to a float
+        """
+        schema_copy = self.schema.copy()
+        schema_copy['self']['version'] = float(schema_copy['self']['version'])
+
+        return schema_copy
 
 
     def get_api_url(self):
+        """
+        Format the url so the schema may be retrieved via API
+        """
         if not self.id:
             return 'n/a'
         api_dict = dict(schema_name_slug=self.slug,\
@@ -51,7 +87,9 @@ class MetadataSchema(TimeStampedModel):
         self_dict = { 'self' : dict(version=self.version,\
                                 url=self.get_api_url(),\
                                 modified=str(self.modified),\
-                                description=self.description)}
+                                description=self.description,\
+                                contributor=self.contributor)\
+                    }
         updated_schema = OrderedDict(self_dict)
         for k, v in self.schema.items():
             if k == 'self': continue

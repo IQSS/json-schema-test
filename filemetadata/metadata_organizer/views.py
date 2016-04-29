@@ -17,7 +17,6 @@ def view_schema_list(request):
 
     l = [m.as_dict() for m in MetadataSchema.objects.filter(published=True).all()]
 
-
     return HttpResponse(json.dumps(l, indent=indent), content_type='application/json')
 
 
@@ -44,7 +43,7 @@ def view_schema(request, schema_name_slug=None, version=None):
 
 @require_GET
 def view_schema_data(request, schema_name_slug, datafile_id):
-    
+
     schema_qs = MetadataSchema.objects.filter(slug=schema_name_slug)
     if version:
         version_num = Decimal(version)

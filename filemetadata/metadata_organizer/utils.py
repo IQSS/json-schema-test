@@ -9,6 +9,8 @@ import json
 import jsonschema
 from collections import OrderedDict
 from jsonschema import Draft4Validator
+from proj_utils.msg_util import msg, msgt
+
 
 # JSON Schema validator information
 CHOSEN_VALIDATOR_CLASS = Draft4Validator

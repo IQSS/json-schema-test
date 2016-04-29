@@ -1,10 +1,11 @@
 from django.conf.urls import url
 
 from metadata_organizer.views import view_schema, view_schema_list
+from metadata_organizer.views_add import add_schema
 
 urlpatterns = [
 
-
+    url(r'^add-schema', add_schema, name='add_schema'),
     url(r'^schema/(?P<schema_name_slug>(\w|-){4,150})/(?P<version>\d+(\.\d{0,2}|))/?$', view_schema, name='view_schema_with_identifier'),
     url(r'^schema/(?P<schema_name_slug>(\w|-){4,150})/?$', view_schema, name='view_schema'),
     url(r'^schema-list$', view_schema_list, name='view_schema_list'),

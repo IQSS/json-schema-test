@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 from metadata_organizer.models import MetadataSchema, FileMetadata
-from metadata_organizer.forms import FileMetadataForm
+from metadata_organizer.admin_forms import FileMetadataForm
 
 class MetadataSchemaAdmin(admin.ModelAdmin):
     """
@@ -9,9 +9,10 @@ class MetadataSchemaAdmin(admin.ModelAdmin):
     can be turned into a valid python dict
     """
     save_on_top = True
-    list_display = ['title', 'slug', 'version', 'published',  'description','modified', 'created']
+    list_display = ['title', 'slug', 'version', 'published', 'contributor',\
+        'description','modified', 'created']
     search_fields = ['title',]
-    list_filter = ['published', 'version', 'title']
+    list_filter = ['published', 'contributor', 'version', 'title']
     readonly_fields = ['modified', 'created']
 admin.site.register(MetadataSchema, MetadataSchemaAdmin)
 
